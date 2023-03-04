@@ -11,7 +11,7 @@
 import {defineComponent} from 'vue'
 
 export default defineComponent({
-  name: 'LikePostUI',
+  name: 'LikePost',
   props: {
     text: String,
     isActive: {
