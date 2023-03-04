@@ -11,7 +11,6 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import HelloWorld from '@/features/HelloWorld.vue';
 import Layout from '@/shared/ui/layout/Layout.vue'
 import Header from '@/widgets/header/ui/Header.vue'
 
@@ -20,7 +19,6 @@ export default defineComponent({
   components: {
     Header,
     Layout,
-    HelloWorld
   }
 })
 </script>
