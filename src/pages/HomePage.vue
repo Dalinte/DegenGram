@@ -4,6 +4,7 @@
       <Header/>
     </template>
     <template v-slot:content>
+      <author-post />
       <like-post text="123123" />
       <dislike-post text="123123" />
     </template>
@@ -14,7 +15,7 @@
 import { defineComponent } from 'vue'
 import Layout from '@/shared/ui/layout/Layout.vue'
 import Header from '@/widgets/header/ui/Header.vue'
-import {LikePost, DislikePost} from '@/entities/posts/ui'
+import {DislikePost, LikePost, AuthorPost} from '@/entities/ui'
 
 export default defineComponent({
   name: 'HomePage',
@@ -23,6 +24,7 @@ export default defineComponent({
     Layout,
     LikePost,
     DislikePost,
+    AuthorPost
   }
 })
 </script>
