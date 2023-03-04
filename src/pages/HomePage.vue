@@ -10,7 +10,7 @@ import { defineComponent } from 'vue'
 import HelloWorld from '@/features/HelloWorld.vue';
 
 export default defineComponent({
-  name: 'HomeView',
+  name: 'HomePage',
   components: {
     HelloWorld
   }
