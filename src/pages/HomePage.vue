@@ -13,8 +13,8 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import Layout from '@/shared/ui/layout/Layout.vue'
-import Header from '@/widgets/header/ui/Header.vue'
+import {Layout} from '@/shared/ui'
+import {Header} from '@/widgets/header'
 import {DislikePost, LikePost, AuthorPost} from '@/entities/ui'
 
 export default defineComponent({
