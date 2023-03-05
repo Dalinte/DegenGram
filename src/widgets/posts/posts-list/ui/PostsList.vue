@@ -8,6 +8,7 @@
       :user-name="item.userName"
       :like-count="item.like"
       :dislike-count="item.dislike"
+      :time="item.time"
       class="mb-1"
     />
   </div>

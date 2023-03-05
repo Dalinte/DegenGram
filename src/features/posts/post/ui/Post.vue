@@ -1,11 +1,15 @@
 <template>
-  <article class="post">
-    <v-card class="pa-4">
-      <author-post
-        :user-name="userName"
-        :address="address"
-        class="mb-3"
-      />
+  <article class="post border-sm">
+    <v-card elevation="0" class="pa-4">
+      <v-card-title class="d-flex align-content-lg-start pa-0 mb-3">
+        <author-post
+          :user-name="userName"
+          :address="address"
+          class="mr-2"
+        />
+        <v-icon icon="mdi-circle-small" color="light-green-darken-4" size="x-small" class="mt-2" />
+        <p class="text-light-green-darken-4">{{time}}</p>
+      </v-card-title>
       <v-card-text class="text-subtitle-1 text-left text-black pa-0 mb-3">{{text}}</v-card-text>
       <v-card-actions class="pa-0">
         <like :count="likeCount" />
@@ -39,7 +43,8 @@ export default defineComponent({
     address: String,
     text: String,
     dislikeCount: Number,
-    likeCount: Number
+    likeCount: Number,
+    time: String
   }
 })
 </script>

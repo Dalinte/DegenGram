@@ -6,4 +6,5 @@ export interface PostModel {
   like: number
   dislike: number
   link: string
+  time: string
 }
