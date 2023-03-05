@@ -11,7 +11,7 @@
 import {defineComponent} from 'vue'
 
 export default defineComponent({
-  name: 'DislikePost',
+  name: 'Dislike',
   props: {
     text: String,
     isActive: {
