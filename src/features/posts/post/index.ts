@@ -1,5 +1,5 @@
 import Post from '@/features/posts/post/ui/Post.vue'
 
-import { PostModel } from '@/features/posts/post/model/PostModel'
+import { PostModel, IPost } from '@/features/posts/post/model/PostModel'
 
-export { Post, PostModel }
+export { Post, PostModel, IPost }

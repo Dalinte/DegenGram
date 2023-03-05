@@ -1,8 +1,14 @@
 <template>
   <div class="like d-flex align-center">
-    <v-btn size="small" :color="getColor" variant="text" :icon="getIcon" />
+    <v-btn
+      :color="getColor"
+      :icon="getIcon"
+      size="small"
+      variant="text"
+      @click="click"
+    />
     <slot>
-      <p :class="`text-${getColor}`" >{{getCount}}</p>
+      <p v-if="count" :class="`text-${getColor}`" >{{getCount}}</p>
     </slot>
   </div>
 </template>
@@ -14,17 +20,22 @@ export default defineComponent({
   name: 'Like',
   props: {
     count: Number,
-    isActive: {
+    isLiked: {
       type: Boolean,
       default: false
     }
   },
+  methods: {
+    click (): void {
+      this.$emit('clickBtn')
+    }
+  },
   computed: {
     getColor (): string {
-      return this.isActive ? 'red' : 'grey'
+      return this.isLiked ? 'red' : 'grey'
     },
     getIcon (): string {
-      return this.isActive ? 'mdi-cards-heart' : 'mdi-heart-outline'
+      return this.isLiked ? 'mdi-cards-heart' : 'mdi-heart-outline'
     },
     getCount (): string {
       return `${this.count}`

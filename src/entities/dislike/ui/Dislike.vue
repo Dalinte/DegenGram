@@ -1,8 +1,14 @@
 <template>
   <div class="dislike d-flex align-center">
-    <v-btn size="small" color="grey" variant="text" :icon="getIcon" />
+    <v-btn
+      :icon="getIcon"
+      size="small"
+      color="grey"
+      variant="text"
+      @click="click"
+    />
     <slot>
-      <p class="text-grey" >{{getCount}}</p>
+      <p v-if="count" class="text-grey" >{{getCount}}</p>
     </slot>
   </div>
 </template>
@@ -14,14 +20,19 @@ export default defineComponent({
   name: 'Dislike',
   props: {
     count: Number,
-    isActive: {
+    isDisliked: {
       type: Boolean,
       default: false
     }
   },
+  methods: {
+    click (): void {
+      this.$emit('clickBtn')
+    }
+  },
   computed: {
     getIcon (): string {
-      return this.isActive ? 'mdi-thumb-down' : 'mdi-thumb-down-outline'
+      return this.isDisliked ? 'mdi-thumb-down' : 'mdi-thumb-down-outline'
     },
     getCount (): string {
       return `${this.count}`
