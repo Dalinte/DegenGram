@@ -1,16 +1,16 @@
 <template>
-  <div class="author-post">
-    <div v-if="image" class="account-logo">
+  <div class="author-post d-flex align-center">
+    <div v-if="image" class="account-logo mr-4">
       <img :src="image" alt="logo">
     </div>
-    <div v-else class="empty-logo">
-      <v-icon icon="mdi-face-profile" />
+    <div v-else class="empty-logo mr-4 pa-2 rounded-circle bg-grey">
+      <v-icon icon="mdi-account" size="large" />
     </div>
-    <div class="info">
-      <div class="nickname">
-        <p>{{nickName}}</p>
+    <div class="info text-left">
+      <div class="nickname font-weight-bold">
+        <p>{{userName}}</p>
       </div>
-      <div class="address">
+      <div class="address text-green">
         <p>{{address}}</p>
       </div>
     </div>
@@ -24,7 +24,7 @@ export default defineComponent({
   name: 'AuthorPost',
   props: {
     address: String,
-    nickName: String,
+    userName: String,
     image: String
   }
 })

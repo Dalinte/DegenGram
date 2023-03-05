@@ -2,7 +2,7 @@
   <div class="like d-flex align-center">
     <v-btn size="small" :color="getColor" variant="text" :icon="getIcon" />
     <slot>
-      <p :class="`text-${getColor}`" >{{text}}</p>
+      <p :class="`text-${getColor}`" >{{getCount}}</p>
     </slot>
   </div>
 </template>
@@ -13,7 +13,7 @@ import {defineComponent} from 'vue'
 export default defineComponent({
   name: 'Like',
   props: {
-    text: String,
+    count: Number,
     isActive: {
       type: Boolean,
       default: false
@@ -25,6 +25,9 @@ export default defineComponent({
     },
     getIcon (): string {
       return this.isActive ? 'mdi-cards-heart' : 'mdi-heart-outline'
+    },
+    getCount (): string {
+      return `${this.count}`
     }
   }
 })

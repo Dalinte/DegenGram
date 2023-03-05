@@ -4,9 +4,7 @@
       <Header/>
     </template>
     <template v-slot:content>
-      <author-post />
-      <like text="123123" />
-      <dislike text="123123" />
+      <posts-list :posts="posts" />
     </template>
   </Layout>
 </template>
@@ -15,18 +13,67 @@
 import { defineComponent } from 'vue'
 import {Layout} from '@/shared/ui'
 import {Header} from '@/widgets/header'
-import {AuthorPost} from '@/entities/author'
-import {Dislike} from '@/entities/dislike'
-import {Like} from '@/entities/like'
+import {Post, PostModel} from '@/features/posts/post'
+import {PostsList} from '@/widgets/posts/posts-list'
 
 export default defineComponent({
   name: 'HomePage',
   components: {
     Header,
     Layout,
-    Like,
-    Dislike,
-    AuthorPost
+    Post,
+    PostsList
+  },
+  computed: {
+    posts (): Array<PostModel> {
+      return [
+        {
+          id: 0,
+          userName: '@User4jr5',
+          address: '0xr3...4jr5',
+          like: 20000,
+          dislike: 30000,
+          text: 'This is the best known and second most common type of lightning. Of all the different types of lightning, it poses the greatest threat to life and property since it strikes the ground. Cloud-to-ground lightning is a lightning discharge between a cumulonimbus cloud and the ground.',
+          link: ''
+        },
+        {
+          id: 0,
+          userName: '@User4jr5',
+          address: '0xr3...4jr5',
+          like: 20000,
+          dislike: 30000,
+          text: 'This is the best known and second most common type of lightning. Of all the different types of lightning, it poses the greatest threat to life and property since it strikes the ground. Cloud-to-ground lightning is a lightning discharge between a cumulonimbus cloud and the ground.',
+          link: ''
+        },
+        {
+          id: 0,
+          userName: '@User4jr5',
+          address: '0xr3...4jr5',
+          like: 20000,
+          dislike: 30000,
+          text: 'This is the best known and second most common type of lightning. Of all the different types of lightning, it poses the greatest threat to life and property since it strikes the ground. Cloud-to-ground lightning is a lightning discharge between a cumulonimbus cloud and the ground.',
+          link: ''
+        },
+        {
+          id: 0,
+          userName: '@User4jr5',
+          address: '0xr3...4jr5',
+          like: 20000,
+          dislike: 30000,
+          text: 'This is the best known and second most common type of lightning. Of all the different types of lightning, it poses the greatest threat to life and property since it strikes the ground. Cloud-to-ground lightning is a lightning discharge between a cumulonimbus cloud and the ground.',
+          link: ''
+        },
+        {
+          id: 0,
+          userName: '@User4jr5',
+          address: '0xr3...4jr5',
+          like: 20000,
+          dislike: 30000,
+          text: 'This is the best known and second most common type of lightning. Of all the different types of lightning, it poses the greatest threat to life and property since it strikes the ground. Cloud-to-ground lightning is a lightning discharge between a cumulonimbus cloud and the ground.',
+          link: ''
+        }
+      ]
+    }
   }
 })
 </script>
