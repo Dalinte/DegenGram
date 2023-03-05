@@ -3,6 +3,11 @@
     <template v-slot:header>
       <Header/>
     </template>
+    <template v-slot:aside-right>
+      <v-btn prepend-icon="mdi-polymer">
+        Explore the contract
+      </v-btn>
+    </template>
     <template v-slot:content>
       <posts-list :posts="posts" />
     </template>
