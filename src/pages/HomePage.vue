@@ -9,6 +9,7 @@
       </v-btn>
     </template>
     <template v-slot:content>
+      <send-post v-if="isAuth" class="mb-6" />
       <posts-list :posts="posts" @click-like="clickLike" @click-dislike="clickDislike" />
     </template>
   </Layout>
@@ -18,8 +19,9 @@
 import {defineComponent} from 'vue'
 import {Layout} from '@/shared/ui'
 import {Header} from '@/widgets/header'
-import {Post, PostModel} from '@/features/posts/post'
+import {Post} from '@/features/posts/post'
 import {PostsList} from '@/widgets/posts/posts-list'
+import {SendPost} from '@/widgets/posts/send-post'
 
 export default defineComponent({
   name: 'HomePage',
@@ -27,7 +29,8 @@ export default defineComponent({
     Header,
     Layout,
     Post,
-    PostsList
+    PostsList,
+    SendPost
   },
   data () {
     return {
@@ -102,6 +105,11 @@ export default defineComponent({
     clickDislike (index: number): void {
       this.posts[index].isDisliked = !this.posts[index].isDisliked
     },
+  },
+  computed: {
+    isAuth (): boolean {
+      return true
+    }
   }
 })
 </script>
