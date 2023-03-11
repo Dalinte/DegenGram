@@ -3,25 +3,28 @@
     <template v-slot:header>
       <Header/>
     </template>
-    <template v-slot:aside-right>
-      <v-btn prepend-icon="mdi-link-variant" class="mt-auto position-fixed">
-        Explore the contract
-      </v-btn>
-    </template>
     <template v-slot:content>
-      <profile
-        user-name="@User4jr5"
-        address="0xr3...4jr5"
-      />
-      <send-post v-if="isAuth" class="mb-6" />
-      <posts-list :posts="posts" @click-like="clickLike" @click-dislike="clickDislike" />
+      <MainContainer>
+       <MainContent>
+         <template v-slot:aside-right>
+           <v-btn prepend-icon="mdi-link-variant" class="mt-auto position-fixed">
+             Explore the contract
+           </v-btn>
+         </template>
+         <template v-slot:content>
+           <profile user-name="@User4jr5" address="0xr3...4jr5" />
+           <send-post v-if="isAuth" class="mb-6" />
+           <posts-list :posts="posts" @click-like="clickLike" @click-dislike="clickDislike" />
+         </template>
+       </MainContent>
+      </MainContainer>
     </template>
   </Layout>
 </template>
 
 <script lang="ts">
 import {defineComponent} from 'vue'
-import {Layout} from '@/shared/ui'
+import {Layout, MainContainer, MainContent} from '@/shared/ui'
 import {Header} from '@/widgets/header'
 import {Post} from '@/features/posts/post'
 import {PostsList} from '@/widgets/posts/posts-list'
@@ -31,6 +34,8 @@ import {Profile} from '@/widgets/profile'
 export default defineComponent({
   name: 'HomePage',
   components: {
+    MainContent,
+    MainContainer,
     Header,
     Layout,
     Post,
