@@ -1,10 +1,8 @@
 <template>
   <div class="user-logout d-flex align-center">
-    <v-btn
-      class="ma-2"
-      color="indigo"
-      icon="mdi-baby-face-outline"
-    />
+    <div class="rounded-circle bg-grey mr-2">
+      <v-icon class="ma-2" icon="mdi-account" size="large" />
+    </div>
     <SplitText :text="address"/>
     <v-icon class="ml-2" icon="mdi-exit-to-app" />
   </div>
