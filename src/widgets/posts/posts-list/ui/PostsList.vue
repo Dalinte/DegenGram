@@ -1,21 +1,19 @@
 <template>
   <div class="posts-list">
     <post
-      v-for="item in posts"
+      v-for="(item, index) in posts"
       :key="item.id"
-      :text="item.text"
-      :address="item.address"
-      :user-name="item.userName"
-      :like-count="item.like"
-      :dislike-count="item.dislike"
+      :item="item"
       class="mb-1"
+      @click-like="clickLike(index)"
+      @click-dislike="clickDislike(index)"
     />
   </div>
 </template>
 
 <script lang="ts">
 import {defineComponent, PropType} from 'vue'
-import {Post, PostModel} from '@/features/posts/post'
+import {Post, PostModel, IPost} from '@/features/posts/post'
 
 export default defineComponent({
   name: 'PostsList',
@@ -24,8 +22,17 @@ export default defineComponent({
   },
   props: {
     posts: {
-      type: Array as PropType<Array<PostModel>>
+      type: Array as PropType<Array<PostModel>>,
+      required: true
     }
+  },
+  methods: {
+    clickLike (index: number): void {
+      this.$emit('clickLike', index)
+    },
+    clickDislike (index: number): void {
+      this.$emit('clickDislike', index)
+    },
   }
 })
 </script>

@@ -10,7 +10,7 @@
       <div class="nickname font-weight-bold">
         <p>{{userName}}</p>
       </div>
-      <div class="address text-green">
+      <div class="address text-light-green-darken-4">
         <p>{{address}}</p>
       </div>
     </div>

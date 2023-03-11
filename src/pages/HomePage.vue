@@ -9,13 +9,13 @@
       </v-btn>
     </template>
     <template v-slot:content>
-      <posts-list :posts="posts" />
+      <posts-list :posts="posts" @click-like="clickLike" @click-dislike="clickDislike" />
     </template>
   </Layout>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import {defineComponent} from 'vue'
 import {Layout} from '@/shared/ui'
 import {Header} from '@/widgets/header'
 import {Post, PostModel} from '@/features/posts/post'
@@ -29,9 +29,9 @@ export default defineComponent({
     Post,
     PostsList
   },
-  computed: {
-    posts (): Array<PostModel> {
-      return [
+  data () {
+    return {
+      posts: [
         {
           id: 0,
           userName: '@User4jr5',
@@ -39,7 +39,10 @@ export default defineComponent({
           like: 20000,
           dislike: 30000,
           text: 'This is the best known and second most common type of lightning. Of all the different types of lightning, it poses the greatest threat to life and property since it strikes the ground. Cloud-to-ground lightning is a lightning discharge between a cumulonimbus cloud and the ground.',
-          link: ''
+          link: '',
+          time: '23s',
+          isLiked: false,
+          isDisliked: false
         },
         {
           id: 0,
@@ -48,7 +51,10 @@ export default defineComponent({
           like: 20000,
           dislike: 30000,
           text: 'This is the best known and second most common type of lightning. Of all the different types of lightning, it poses the greatest threat to life and property since it strikes the ground. Cloud-to-ground lightning is a lightning discharge between a cumulonimbus cloud and the ground.',
-          link: ''
+          link: '',
+          time: '23s',
+          isLiked: false,
+          isDisliked: false
         },
         {
           id: 0,
@@ -57,7 +63,10 @@ export default defineComponent({
           like: 20000,
           dislike: 30000,
           text: 'This is the best known and second most common type of lightning. Of all the different types of lightning, it poses the greatest threat to life and property since it strikes the ground. Cloud-to-ground lightning is a lightning discharge between a cumulonimbus cloud and the ground.',
-          link: ''
+          link: '',
+          time: '23s',
+          isLiked: false,
+          isDisliked: false
         },
         {
           id: 0,
@@ -66,7 +75,10 @@ export default defineComponent({
           like: 20000,
           dislike: 30000,
           text: 'This is the best known and second most common type of lightning. Of all the different types of lightning, it poses the greatest threat to life and property since it strikes the ground. Cloud-to-ground lightning is a lightning discharge between a cumulonimbus cloud and the ground.',
-          link: ''
+          link: '',
+          time: '23s',
+          isLiked: false,
+          isDisliked: false
         },
         {
           id: 0,
@@ -75,10 +87,21 @@ export default defineComponent({
           like: 20000,
           dislike: 30000,
           text: 'This is the best known and second most common type of lightning. Of all the different types of lightning, it poses the greatest threat to life and property since it strikes the ground. Cloud-to-ground lightning is a lightning discharge between a cumulonimbus cloud and the ground.',
-          link: ''
+          link: '',
+          time: '23s',
+          isLiked: false,
+          isDisliked: false
         }
       ]
     }
+  },
+  methods: {
+    clickLike (index: number): void {
+      this.posts[index].isLiked = !this.posts[index].isLiked
+    },
+    clickDislike (index: number): void {
+      this.posts[index].isDisliked = !this.posts[index].isDisliked
+    },
   }
 })
 </script>
