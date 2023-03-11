@@ -6,11 +6,11 @@
       placeholder="What’s happening?"
       variant="solo"
       class="elevation-0 text-subtitle-1"
-      rows="4"
+      rows="2"
       no-resize
     >
       <template #prepend-inner>
-        <div class="avatar">
+        <div class="avatar cursor-pointer">
           <v-avatar v-if="avatarUrl" >
             <v-img :src="avatarUrl" alt="avatar" />
           </v-avatar>
@@ -22,7 +22,7 @@
     </v-textarea>
     <v-btn
       color="green"
-      size="x-large"
+      size="large"
       rounded="lg"
       class="align-self-end"
       :disabled="isDisabled"

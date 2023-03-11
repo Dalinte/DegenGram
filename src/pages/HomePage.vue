@@ -9,6 +9,10 @@
       </v-btn>
     </template>
     <template v-slot:content>
+      <profile
+        user-name="@User4jr5"
+        address="0xr3...4jr5"
+      />
       <send-post v-if="isAuth" class="mb-6" />
       <posts-list :posts="posts" @click-like="clickLike" @click-dislike="clickDislike" />
     </template>
@@ -22,6 +26,7 @@ import {Header} from '@/widgets/header'
 import {Post} from '@/features/posts/post'
 import {PostsList} from '@/widgets/posts/posts-list'
 import {SendPost} from '@/widgets/posts/send-post'
+import {Profile} from '@/widgets/profile'
 
 export default defineComponent({
   name: 'HomePage',
@@ -30,7 +35,8 @@ export default defineComponent({
     Layout,
     Post,
     PostsList,
-    SendPost
+    SendPost,
+    Profile
   },
   data () {
     return {
