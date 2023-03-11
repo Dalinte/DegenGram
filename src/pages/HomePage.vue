@@ -4,7 +4,7 @@
       <Header/>
     </template>
     <template v-slot:aside-right>
-      <v-btn prepend-icon="mdi-polymer">
+      <v-btn prepend-icon="mdi-link-variant" class="mt-auto position-fixed">
         Explore the contract
       </v-btn>
     </template>

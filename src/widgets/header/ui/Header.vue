@@ -1,11 +1,9 @@
 <template>
   <v-app-bar elevation="1">
     <template v-slot:prepend>
-      <v-btn
-        class="ma-2"
-        color="indigo"
-        icon="mdi-baby-face-outline"
-      ></v-btn>
+      <div class="rounded-circle bg-grey">
+        <v-icon class="ma-2" icon="mdi-account" size="large" />
+      </div>
     </template>
     <template v-slot:append>
       <v-btn
