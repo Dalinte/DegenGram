@@ -7,6 +7,7 @@
       variant="solo"
       class="elevation-0 text-subtitle-1"
       rows="4"
+      no-resize
     >
       <template #prepend-inner>
         <div class="avatar">
