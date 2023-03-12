@@ -21,7 +21,7 @@
       </template>
     </v-textarea>
     <v-btn
-      color="green"
+      color="green-1"
       size="large"
       rounded="lg"
       class="align-self-end"

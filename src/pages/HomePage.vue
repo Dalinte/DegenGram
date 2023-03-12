@@ -7,7 +7,7 @@
       <MainContainer>
        <MainContent>
          <template v-slot:aside-right>
-           <v-btn prepend-icon="mdi-link-variant" class="mt-auto position-fixed">
+           <v-btn prepend-icon="mdi-link-variant" class="explorer-button mt-auto position-fixed">
              Explore the contract
            </v-btn>
          </template>
@@ -124,3 +124,9 @@ export default defineComponent({
   }
 })
 </script>
+
+<style lang="scss">
+  .explorer-button {
+    bottom: 50px;
+  }
+</style>
