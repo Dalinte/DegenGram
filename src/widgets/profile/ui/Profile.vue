@@ -4,17 +4,13 @@
       <img :src="image" alt="logo">
     </div>
     <div v-else class="empty-logo mr-4 pa-2 rounded-circle bg-grey">
-      <v-icon icon="mdi-account" size="large" />
+      <v-icon icon="mdi-account" size="x-large" />
     </div>
     <div class="right-block d-flex flex-column w-100">
       <div class="user d-flex justify-space-between align-center">
-        <div class="user__info">
-          <div class="nickname font-weight-bold">
-            <p>{{userName}}</p>
-          </div>
-          <div class="address text-light-green-darken-4">
-            <p>{{address}}</p>
-          </div>
+        <div class="user__info text-left">
+          <p class="nickname font-weight-bold" >{{userName}}</p>
+          <p class="address text-light-green-darken-4">{{address}}</p>
         </div>
         <div class="user__action">
           <v-btn
@@ -50,7 +46,7 @@ export default defineComponent({
   },
   computed: {
     isMyAccount (): boolean {
-      return true
+      return false
     },
     textBtn (): string {
       return this.isMyAccount ? 'Edit' : 'Subscribe'
