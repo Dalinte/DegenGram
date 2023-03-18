@@ -10,17 +10,7 @@
         ></v-img>
       </template>
       <template v-slot:aside-right>
-        <v-btn
-          v-if="!authStatus"
-          @click="toggleAuthStatus"
-        >
-          Connect wallet
-        </v-btn>
-        <UserLogout
-          v-if="authStatus"
-          address="0x690b9a9e9aa1c9db991c7721a92d351db4fac990"
-          @click="toggleAuthStatus"
-        />
+        <ConnectWalletButton address="0x690b9a9e9aa1c9db991c7721a92d351db4fac990" />
       </template>
     </MainContent>
   </MainContainer>
@@ -38,16 +28,6 @@ export default defineComponent({
     MainContainer,
     MainContent
   },
-  data() {
-    return {
-      authStatus: false,
-    }
-  },
-  methods: {
-    toggleAuthStatus() {
-      this.authStatus = !this.authStatus
-    }
-  }
 })
 </script>
 
