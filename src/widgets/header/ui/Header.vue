@@ -18,13 +18,11 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import UserLogout from '@/features/UserLogout.vue'
 import {MainContainer, MainContent} from '@/shared/ui'
 
 export default defineComponent({
   name: 'Header',
   components: {
-    UserLogout,
     MainContainer,
     MainContent
   },
