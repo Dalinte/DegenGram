@@ -1,3 +1,1 @@
-import Like from '@/entities/like/ui/Like.vue'
-
-export { Like }
+export { default as Like } from '@/entities/like/ui/Like.vue'
