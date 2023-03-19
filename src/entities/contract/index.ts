@@ -1,3 +1,1 @@
-import { Contract as ContractModel } from './model'
-
-export { ContractModel }
+export * as ContractModel from './model'
