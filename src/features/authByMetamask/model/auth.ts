@@ -1,4 +1,4 @@
-import { walletModel } from '@/entities/wallet'
+import { walletLib } from '@/entities/wallet'
 import { authByMetamaskLib } from '@/features/authByMetamask'
 
 export const authIfHasLocalFlag = async () => {
@@ -10,11 +10,11 @@ export const authIfHasLocalFlag = async () => {
 }
 
 export const auth = async () => {
-  if (!walletModel.wallet.isMetaMask) {
+  if (!walletLib.wallet.isMetaMask) {
     return
   }
 
-  const accounts = await walletModel.wallet.connect()
+  const accounts = await walletLib.wallet.connect()
 
   if (typeof accounts === 'string') {
     throw new Error('An error occurred' + accounts)

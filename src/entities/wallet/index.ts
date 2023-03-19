@@ -1,2 +1,2 @@
-export * as walletModel from './lib/wallet'
-export * as walletStore from './model/store'
+export * as walletLib from './lib'
+export * as walletModel from './model'

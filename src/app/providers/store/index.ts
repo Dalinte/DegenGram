@@ -1,9 +1,9 @@
 import { createStore } from 'vuex'
 
-import { walletStore } from '@/entities/wallet'
+import { walletModel } from '@/entities/wallet'
 
 export const store = createStore({
   modules: {
-    [walletStore.walletStoreName]: walletStore.walletStoreModule,
+    [walletModel.walletStoreName]: walletModel.walletStoreModule,
   },
 })
