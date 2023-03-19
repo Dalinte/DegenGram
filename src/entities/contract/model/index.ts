@@ -1,1 +1,1 @@
-export * from './Contract'
+export * from './contract'
