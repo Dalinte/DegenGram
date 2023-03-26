@@ -1,3 +1,1 @@
-import Dislike from '@/entities/dislike/ui/Dislike.vue'
-
-export { Dislike }
+export { default as Dislike } from '@/entities/dislike/ui/Dislike.vue'

@@ -10,7 +10,7 @@
         ></v-img>
       </template>
       <template v-slot:aside-right>
-        <ConnectWalletButton address="0x690b9a9e9aa1c9db991c7721a92d351db4fac990" />
+        <AuthByMetamask/>
       </template>
     </MainContent>
   </MainContainer>
@@ -19,12 +19,13 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import {MainContainer, MainContent} from '@/shared/ui'
-
+import {AuthByMetamask} from '@/features/authByMetamask'
 export default defineComponent({
   name: 'Header',
   components: {
     MainContainer,
-    MainContent
+    MainContent,
+    AuthByMetamask,
   },
 })
 </script>
