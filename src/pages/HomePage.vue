@@ -12,8 +12,8 @@
            </v-btn>
          </template>
          <template v-slot:content>
-           <profile user-name="@User4jr5" address="0xr3...4jr5" />
-           <send-post v-if="isAuth" class="mb-6" />
+           <profile user-name="@User4jr5" :address="addressUser" />
+           <send-post v-if="isAuth" :address="addressUser" class="mb-6" />
            <posts-list :posts="posts" @like="like" @dislike="dislike" @click-link="clickLink" />
          </template>
        </MainContent>
@@ -31,6 +31,7 @@ import {PostsList} from '@/widgets/posts/posts-list'
 import {SendPost} from '@/widgets/posts/send-post'
 import {Profile} from '@/widgets/profile'
 import { contractModel } from '@/entities/contract'
+import { walletModel } from '@/entities/wallet'
 
 export default defineComponent({
   name: 'HomePage',
@@ -43,72 +44,6 @@ export default defineComponent({
     PostsList,
     SendPost,
     Profile
-  },
-  data () {
-    return {
-      posts: [
-        {
-          id: 0,
-          userName: '@User4jr5',
-          address: '0xr3...4jr5',
-          like: 20000,
-          dislike: 30000,
-          text: 'This is the best known and second most common type of lightning. Of all the different types of lightning, it poses the greatest threat to life and property since it strikes the ground. Cloud-to-ground lightning is a lightning discharge between a cumulonimbus cloud and the ground.',
-          link: '',
-          time: '23s',
-          isLiked: false,
-          isDisliked: false
-        },
-        {
-          id: 0,
-          userName: '@User4jr5',
-          address: '0xr3...4jr5',
-          like: 20000,
-          dislike: 30000,
-          text: 'This is the best known and second most common type of lightning. Of all the different types of lightning, it poses the greatest threat to life and property since it strikes the ground. Cloud-to-ground lightning is a lightning discharge between a cumulonimbus cloud and the ground.',
-          link: '',
-          time: '23s',
-          isLiked: false,
-          isDisliked: false
-        },
-        {
-          id: 0,
-          userName: '@User4jr5',
-          address: '0xr3...4jr5',
-          like: 20000,
-          dislike: 30000,
-          text: 'This is the best known and second most common type of lightning. Of all the different types of lightning, it poses the greatest threat to life and property since it strikes the ground. Cloud-to-ground lightning is a lightning discharge between a cumulonimbus cloud and the ground.',
-          link: '',
-          time: '23s',
-          isLiked: false,
-          isDisliked: false
-        },
-        {
-          id: 0,
-          userName: '@User4jr5',
-          address: '0xr3...4jr5',
-          like: 20000,
-          dislike: 30000,
-          text: 'This is the best known and second most common type of lightning. Of all the different types of lightning, it poses the greatest threat to life and property since it strikes the ground. Cloud-to-ground lightning is a lightning discharge between a cumulonimbus cloud and the ground.',
-          link: '',
-          time: '23s',
-          isLiked: false,
-          isDisliked: false
-        },
-        {
-          id: 0,
-          userName: '@User4jr5',
-          address: '0xr3...4jr5',
-          like: 20000,
-          dislike: 30000,
-          text: 'This is the best known and second most common type of lightning. Of all the different types of lightning, it poses the greatest threat to life and property since it strikes the ground. Cloud-to-ground lightning is a lightning discharge between a cumulonimbus cloud and the ground.',
-          link: '',
-          time: '23s',
-          isLiked: false,
-          isDisliked: false
-        }
-      ]
-    }
   },
   methods: {
     like (index: number): void {
@@ -128,6 +63,73 @@ export default defineComponent({
   computed: {
     isAuth (): boolean {
       return true
+    },
+    addressUser (): string {
+      return this.$store.getters[walletModel.walletStoreNameSpace + 'address']
+    },
+    posts () {
+      return [
+        {
+          id: 0,
+          userName: '@User4jr5',
+          address: this.$store.getters[walletModel.walletStoreNameSpace + 'address'],
+          like: 20000,
+          dislike: 30000,
+          text: 'This is the best known and second most common type of lightning. Of all the different types of lightning, it poses the greatest threat to life and property since it strikes the ground. Cloud-to-ground lightning is a lightning discharge between a cumulonimbus cloud and the ground.',
+          link: '',
+          time: '23s',
+          isLiked: false,
+          isDisliked: false
+        },
+        {
+          id: 0,
+          userName: '@User4jr5',
+          address: this.$store.getters[walletModel.walletStoreNameSpace + 'address'],
+          like: 20000,
+          dislike: 30000,
+          text: 'This is the best known and second most common type of lightning. Of all the different types of lightning, it poses the greatest threat to life and property since it strikes the ground. Cloud-to-ground lightning is a lightning discharge between a cumulonimbus cloud and the ground.',
+          link: '',
+          time: '23s',
+          isLiked: false,
+          isDisliked: false
+        },
+        {
+          id: 0,
+          userName: '@User4jr5',
+          address: this.$store.getters[walletModel.walletStoreNameSpace + 'address'],
+          like: 20000,
+          dislike: 30000,
+          text: 'This is the best known and second most common type of lightning. Of all the different types of lightning, it poses the greatest threat to life and property since it strikes the ground. Cloud-to-ground lightning is a lightning discharge between a cumulonimbus cloud and the ground.',
+          link: '',
+          time: '23s',
+          isLiked: false,
+          isDisliked: false
+        },
+        {
+          id: 0,
+          userName: '@User4jr5',
+          address: this.$store.getters[walletModel.walletStoreNameSpace + 'address'],
+          like: 20000,
+          dislike: 30000,
+          text: 'This is the best known and second most common type of lightning. Of all the different types of lightning, it poses the greatest threat to life and property since it strikes the ground. Cloud-to-ground lightning is a lightning discharge between a cumulonimbus cloud and the ground.',
+          link: '',
+          time: '23s',
+          isLiked: false,
+          isDisliked: false
+        },
+        {
+          id: 0,
+          userName: '@User4jr5',
+          address: this.$store.getters[walletModel.walletStoreNameSpace + 'address'],
+          like: 20000,
+          dislike: 30000,
+          text: 'This is the best known and second most common type of lightning. Of all the different types of lightning, it poses the greatest threat to life and property since it strikes the ground. Cloud-to-ground lightning is a lightning discharge between a cumulonimbus cloud and the ground.',
+          link: '',
+          time: '23s',
+          isLiked: false,
+          isDisliked: false
+        }
+      ]
     }
   }
 })

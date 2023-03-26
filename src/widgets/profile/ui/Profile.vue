@@ -1,16 +1,13 @@
 <template>
   <div class="profile d-flex align-center ma-8">
-    <div v-if="image" class="account-logo mr-4">
-      <img :src="image" alt="logo">
-    </div>
-    <div v-else class="empty-logo mr-4 pa-2 rounded-circle bg-grey">
-      <v-icon icon="mdi-account" size="x-large" />
+    <div class="account-logo mr-4">
+      <Jazzicon :address="address" :diameter="60" />
     </div>
     <div class="right-block d-flex flex-column w-100">
       <div class="user d-flex justify-space-between align-center">
         <div class="user__info text-left">
           <p class="nickname font-weight-bold" >{{userName}}</p>
-          <p class="address text-light-green-darken-4">{{address}}</p>
+          <p class="address text-light-green-darken-4">{{getAddress}}</p>
         </div>
         <div class="user__action">
           <v-btn
@@ -36,13 +33,17 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import {splitEllipsis} from '@/shared/lib'
 
 export default defineComponent({
   name: 'Profile',
   props: {
-    address: String,
     userName: String,
-    image: String
+    image: String,
+    address: {
+      type: String,
+      required: true
+    },
   },
   computed: {
     isMyAccount (): boolean {
@@ -69,6 +70,9 @@ export default defineComponent({
           quantity: 72
         }
       ]
+    },
+    getAddress (): string {
+      return splitEllipsis(this.address)
     }
   }
 })
