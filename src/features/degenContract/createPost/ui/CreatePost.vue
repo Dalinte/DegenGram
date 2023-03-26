@@ -11,11 +11,8 @@
     >
       <template #prepend-inner>
         <div class="avatar cursor-pointer">
-          <v-avatar v-if="avatarUrl" >
-            <v-img :src="avatarUrl" alt="avatar" />
-          </v-avatar>
-          <v-avatar v-else color="grey" size="64">
-            <v-icon icon="mdi-account-circle" size="64"></v-icon>
+          <v-avatar>
+            <Jazzicon :address="address" :diameter="60" />
           </v-avatar>
         </div>
       </template>
@@ -44,7 +41,7 @@ import { walletModel } from '@/entities/wallet'
 export default defineComponent({
   name: 'CreatePost',
   props: {
-    avatarUrl: String
+    address: String
   },
   data () {
     return {

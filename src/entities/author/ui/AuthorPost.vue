@@ -1,7 +1,7 @@
 <template>
   <div class="author-post d-flex align-center">
-    <div v-if="image" class="account-logo mr-4">
-      <img :src="image" alt="logo">
+    <div v-if="address" class="account-logo mr-4">
+      <Jazzicon :address="address" :diameter="60" />
     </div>
     <div v-else class="empty-logo mr-4 pa-2 rounded-circle bg-grey">
       <v-icon icon="mdi-account" size="large" />
@@ -11,7 +11,7 @@
         <p>{{userName}}</p>
       </div>
       <div class="address text-light-green-darken-4">
-        <p>{{address}}</p>
+        <split-text :text="address" />
       </div>
     </div>
   </div>
@@ -19,7 +19,7 @@
 
 <script lang="ts">
 import {defineComponent} from 'vue'
-import {Jazzicon} from 'vue-connect-wallet'
+import {SplitText} from '@/shared/ui'
 
 export default defineComponent({
   name: 'AuthorPost',
@@ -28,10 +28,8 @@ export default defineComponent({
     userName: String,
     image: String
   },
-  methods: {
-    getAvatar(value: string) {
-      console.log(123)
-    }
+  components: {
+    SplitText
   }
 })
 </script>
