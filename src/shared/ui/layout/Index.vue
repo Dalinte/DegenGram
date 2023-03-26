@@ -1,7 +1,7 @@
 <template>
   <v-layout max-width="448" class="d-flex flex-column">
     <slot name="header" />
-    <v-main>
+    <v-main class="bg-green-5">
       <slot name="content"/>
     </v-main>
   </v-layout>

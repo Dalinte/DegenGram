@@ -1,4 +1,5 @@
-import { TransactionConfig } from 'web3-eth'
+import { PromiEvent } from 'web3-core'
+import { TransactionConfig, TransactionReceipt } from 'web3-eth'
 
 import { Web3 } from '@/shared/lib'
 
@@ -9,7 +10,7 @@ export class Transaction {
     this.transactionObject = transactionObject
   }
 
-  async send () {
+  send (): PromiEvent<TransactionReceipt> {
     return Web3.eth.sendTransaction(this.transactionObject)
   }
 }
