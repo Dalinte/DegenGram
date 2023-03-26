@@ -19,6 +19,7 @@
 
 <script lang="ts">
 import {defineComponent} from 'vue'
+import {Jazzicon} from 'vue-connect-wallet'
 
 export default defineComponent({
   name: 'AuthorPost',
@@ -26,6 +27,11 @@ export default defineComponent({
     address: String,
     userName: String,
     image: String
+  },
+  methods: {
+    getAvatar(value: string) {
+      console.log(123)
+    }
   }
 })
 </script>

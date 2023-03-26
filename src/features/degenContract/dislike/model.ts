@@ -1,7 +1,7 @@
-import type { PayableOverrides } from '@ethersproject/contracts'
+import { contractModel } from '@/entities/contract'
 
-const dislikePost = (postId: number, overrides?: PayableOverrides) => {
-  console.log(postId, overrides)
+const dislikePost = (postId: number): contractModel.TWriteContractResponse => {
+  return contractModel.instanceDegenContract.dislikePost(postId)
 }
 
 export default dislikePost

@@ -11,7 +11,7 @@ export class DegenContract extends Contract {
   }
 
   dislikePost (postId: number): TWriteContractResponse {
-    return this.contract.methods.dislike(postId).call()
+    return this.contract.methods.dislikePost(postId).call()
   }
 
   getPost (postId: number): Promise<[string, string, number]> {
