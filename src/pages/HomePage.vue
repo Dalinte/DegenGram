@@ -7,7 +7,7 @@
       <MainContainer>
        <MainContent>
          <template v-slot:aside-right>
-           <v-btn prepend-icon="mdi-link-variant" class="explorer-button mt-auto position-fixed">
+           <v-btn @click="click" prepend-icon="mdi-link-variant" class="explorer-button mt-auto position-fixed">
              Explore the contract
            </v-btn>
          </template>
@@ -30,6 +30,7 @@ import {Post} from '@/features/posts/post'
 import {PostsList} from '@/widgets/posts/posts-list'
 import {SendPost} from '@/widgets/posts/send-post'
 import {Profile} from '@/widgets/profile'
+import { contractModel } from '@/entities/contract'
 
 export default defineComponent({
   name: 'HomePage',
@@ -116,6 +117,10 @@ export default defineComponent({
     clickDislike (index: number): void {
       this.posts[index].isDisliked = !this.posts[index].isDisliked
     },
+    async click() {
+      const post = contractModel.instanceDegenContract.getPost(1)
+      console.log(post)
+    }
   },
   computed: {
     isAuth (): boolean {
