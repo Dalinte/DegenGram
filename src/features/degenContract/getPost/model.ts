@@ -1,7 +1,7 @@
 import type { PayableOverrides } from '@ethersproject/contracts'
 
-const posts = (value: string, overrides: PayableOverrides) => {
+const getPost = (value: string, overrides: PayableOverrides) => {
   console.log(value, overrides)
 }
 
-export default posts
+export default getPost

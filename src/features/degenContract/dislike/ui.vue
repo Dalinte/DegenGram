@@ -1,41 +1,44 @@
 <template>
-  <div class="like d-flex align-center">
+  <div class="dislike d-flex align-center">
     <v-btn
-      :color="getColor"
       :icon="getIcon"
       size="small"
+      color="grey"
       variant="text"
       @click="click"
     />
     <slot>
-      <p v-if="count" :class="`text-${getColor}`" >{{getCount}}</p>
+      <p v-if="count" class="text-grey" >{{getCount}}</p>
     </slot>
   </div>
 </template>
 
 <script lang="ts">
-import {defineComponent} from 'vue'
+import { defineComponent } from 'vue'
+import {dislikePost} from '@/features/degenContract'
 
 export default defineComponent({
-  name: 'Like',
+  name: 'Dislike',
   props: {
     count: Number,
-    isLiked: {
+    postId: {
+      type: Number,
+      required: true
+    },
+    isDisliked: {
       type: Boolean,
       default: false
     }
   },
   methods: {
     click (): void {
-      this.$emit('clickBtn')
+      dislikePost(this.postId);
+      this.$emit('dislike')
     }
   },
   computed: {
-    getColor (): string {
-      return this.isLiked ? 'red' : 'grey'
-    },
     getIcon (): string {
-      return this.isLiked ? 'mdi-cards-heart' : 'mdi-heart-outline'
+      return this.isDisliked ? 'mdi-thumb-down' : 'mdi-thumb-down-outline'
     },
     getCount (): string {
       return `${this.count}`

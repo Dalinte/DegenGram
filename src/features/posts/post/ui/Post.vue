@@ -12,8 +12,8 @@
       </v-card-title>
       <v-card-text class="text-subtitle-1 text-left text-black pa-0 mb-3">{{item.text}}</v-card-text>
       <v-card-actions class="pa-0">
-        <like :count="item.like" :is-liked="item.isLiked" @click-btn="clickLike" />
-        <dislike :count="item.dislike" :is-disliked="item.isDisliked" @click-btn="clickDislike" />
+        <like :post-id="item.id" :count="item.like" :is-liked="item.isLiked" @like="like" />
+        <dislike :post-id="item.id" :count="item.dislike" :is-disliked="item.isDisliked" @dislike="dislike" />
         <v-btn
           color="grey"
           icon="mdi-link-variant"
@@ -28,10 +28,11 @@
 
 <script lang="ts">
 import {defineComponent, PropType} from 'vue'
-import {Dislike} from '@/entities/dislike'
-import {Like} from '@/entities/like'
+import {Dislike} from '@/features/degenContract/dislike'
+import {Like} from '@/features/degenContract/like'
 import {AuthorPost} from '@/entities/author'
 import {IPost} from '@/features/posts/post'
+import like from '@/entities/like/ui/Like.vue'
 
 export default defineComponent({
   name: 'Post',
@@ -46,14 +47,14 @@ export default defineComponent({
     }
   },
   methods: {
-    clickLike (): void {
-      this.$emit('clickLike')
-    },
-    clickDislike (): void {
-      this.$emit('clickDislike')
-    },
     clickLink (): void {
       this.$emit('clickLink')
+    },
+    dislike (): void {
+      this.$emit('dislike')
+    },
+    like (): void {
+      this.$emit('like')
     }
   }
 })

@@ -5,15 +5,16 @@
       :key="item.id"
       :item="item"
       class="mb-1"
-      @click-like="clickLike(index)"
-      @click-dislike="clickDislike(index)"
+      @like="like(index)"
+      @dislike="dislike(index)"
+      @click-link="clickLink(index)"
     />
   </div>
 </template>
 
 <script lang="ts">
 import {defineComponent, PropType} from 'vue'
-import {Post, PostModel, IPost} from '@/features/posts/post'
+import {Post, PostModel} from '@/features/posts/post'
 
 export default defineComponent({
   name: 'PostsList',
@@ -27,16 +28,15 @@ export default defineComponent({
     }
   },
   methods: {
-    clickLike (index: number): void {
-      this.$emit('clickLike', index)
+    like (index: number): void {
+      this.$emit('like', index)
     },
-    clickDislike (index: number): void {
-      this.$emit('clickDislike', index)
+    dislike (index: number): void {
+      this.$emit('dislike', index)
+    },
+    clickLink (index: number): void {
+      this.$emit('clickLink', index)
     },
   }
 })
 </script>
-
-<style scoped>
-
-</style>

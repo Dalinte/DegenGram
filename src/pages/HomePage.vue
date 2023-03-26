@@ -14,7 +14,7 @@
          <template v-slot:content>
            <profile user-name="@User4jr5" address="0xr3...4jr5" />
            <send-post v-if="isAuth" class="mb-6" />
-           <posts-list :posts="posts" @click-like="clickLike" @click-dislike="clickDislike" />
+           <posts-list :posts="posts" @like="like" @dislike="dislike" @click-link="clickLink" />
          </template>
        </MainContent>
       </MainContainer>
@@ -110,12 +110,15 @@ export default defineComponent({
     }
   },
   methods: {
-    clickLike (index: number): void {
+    like (index: number): void {
       this.posts[index].isLiked = !this.posts[index].isLiked
     },
-    clickDislike (index: number): void {
+    dislike (index: number): void {
       this.posts[index].isDisliked = !this.posts[index].isDisliked
     },
+    clickLink (index: number): void {
+      console.log('clickLink', index)
+    }
   },
   computed: {
     isAuth (): boolean {
