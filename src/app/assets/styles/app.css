@@ -1,0 +1,16 @@
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+}
+
+.v-field--variant-solo {
+  box-shadow: unset !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=app.css.map */
