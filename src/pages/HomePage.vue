@@ -62,6 +62,10 @@ export default defineComponent({
     }
   },
   computed: {
+    ...mapGetters(walletModel.walletStoreName, [
+      'isAuth',
+    ]),
+
     isAuth (): boolean {
       return true
     },
@@ -133,22 +137,6 @@ export default defineComponent({
       ]
     }
   },
-  methods: {
-    like (index: number): void {
-      this.posts[index].isLiked = !this.posts[index].isLiked
-    },
-    dislike (index: number): void {
-      this.posts[index].isDisliked = !this.posts[index].isDisliked
-    },
-    clickLink (index: number): void {
-      console.log('clickLink', index)
-    },
-  },
-  computed: {
-    ...mapGetters(walletModel.walletStoreName, [
-      'isAuth',
-    ])
-  }
 })
 </script>
 
