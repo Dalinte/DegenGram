@@ -26,6 +26,7 @@
       rounded="lg"
       class="align-self-end"
       :disabled="isDisabled"
+      @click="createPost"
     >
       {{textBtn}}
     </v-btn>
@@ -34,9 +35,14 @@
 
 <script lang="ts">
 import {defineComponent} from 'vue'
+import { ChainConfigPolygon, polygonChainId } from '@/shared/config'
+import {createPostModel} from '@/features/degenContract/createPost'
+import {authByMetamaskModel} from '@/features/authByMetamask'
+import { mapGetters } from 'vuex'
+import { walletModel } from '@/entities/wallet'
 
 export default defineComponent({
-  name: 'SendPost',
+  name: 'CreatePost',
   props: {
     avatarUrl: String
   },
@@ -46,11 +52,22 @@ export default defineComponent({
     }
   },
   computed: {
+    ...mapGetters(walletModel.walletStoreName, [
+      'chainId',
+      'isAuth',
+    ]),
     textBtn (): string {
       return 'Croak'
     },
     isDisabled (): boolean {
       return !this.textPost
+    }
+  },
+  methods: {
+    async createPost() {
+      await authByMetamaskModel.switchOrAddChain(this.chainId, polygonChainId, ChainConfigPolygon)
+
+      await createPostModel.createPost(this.textPost).then()
     }
   }
 })

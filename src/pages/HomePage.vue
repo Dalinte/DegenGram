@@ -7,13 +7,13 @@
       <MainContainer>
        <MainContent>
          <template v-slot:aside-right>
-           <v-btn @click="click" prepend-icon="mdi-link-variant" class="explorer-button mt-auto position-fixed">
+           <v-btn prepend-icon="mdi-link-variant" class="explorer-button mt-auto position-fixed">
              Explore the contract
            </v-btn>
          </template>
          <template v-slot:content>
            <profile user-name="@User4jr5" address="0xr3...4jr5" />
-           <send-post v-if="isAuth" class="mb-6" />
+           <CreatePostComponent v-if="isAuth" class="mb-6"/>
            <posts-list :posts="posts" @like="like" @dislike="dislike" @click-link="clickLink" />
          </template>
        </MainContent>
@@ -28,9 +28,11 @@ import {Layout, MainContainer, MainContent} from '@/shared/ui'
 import {Header} from '@/widgets/header'
 import {Post} from '@/features/posts/post'
 import {PostsList} from '@/widgets/posts/posts-list'
-import {SendPost} from '@/widgets/posts/send-post'
+import {CreatePostComponent} from '@/features/degenContract/createPost'
 import {Profile} from '@/widgets/profile'
-import { contractModel } from '@/entities/contract'
+import { walletModel } from '@/entities/wallet'
+import { mapGetters } from 'vuex'
+
 
 export default defineComponent({
   name: 'HomePage',
@@ -41,7 +43,7 @@ export default defineComponent({
     Layout,
     Post,
     PostsList,
-    SendPost,
+    CreatePostComponent,
     Profile
   },
   data () {
@@ -120,15 +122,11 @@ export default defineComponent({
     clickLink (index: number): void {
       console.log('clickLink', index)
     },
-    async click() {
-      const post = contractModel.instanceDegenContract.getPost(1)
-      console.log(post)
-    }
   },
   computed: {
-    isAuth (): boolean {
-      return true
-    }
+    ...mapGetters(walletModel.walletStoreName, [
+      'isAuth',
+    ])
   }
 })
 </script>

@@ -32,7 +32,7 @@ export const walletStoreModule = {
   },
   getters: {
     address: (state: TState) => state.address,
-    isLogin: (state: TState) => !!state.address,
+    isAuth: (state: TState) => !!state.address,
     chainId: (state: TState) => state.chainId,
   },
 }

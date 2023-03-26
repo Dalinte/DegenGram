@@ -7,7 +7,7 @@ export interface IContract {
 }
 
 export type TWriteContractResponse = PromiEvent<TransactionReceipt>
-export type TReadContractResponse = Promise<[string]>
+export type TReadContractResponse = Promise<string>
 
 export type TGetPostsResponse = Promise<[string, string, number] & {
   author: string;

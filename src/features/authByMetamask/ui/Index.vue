@@ -5,7 +5,7 @@
       :txnCount="0"
       @click="login"
     />
-    <v-icon v-if="isLogin" class="ml-2" icon="mdi-exit-to-app" />
+    <v-icon v-if="isAuth" class="ml-2" icon="mdi-exit-to-app" />
   </div>
 </template>
 
@@ -24,17 +24,17 @@ export default defineComponent({
   computed: {
     ...mapGetters('wallet', [
       'address',
-      'isLogin',
+      'isAuth',
     ])
   },
   methods: {
     login() {
-      if (!this.isLogin) {
+      if (!this.isAuth) {
         authByMetamaskModel.auth()
       }
     },
     logout() {
-      if (this.isLogin) {
+      if (this.isAuth) {
         authByMetamaskModel.logout()
       }
     }

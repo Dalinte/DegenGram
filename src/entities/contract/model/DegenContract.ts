@@ -6,12 +6,12 @@ import {
 } from '@/entities/contract/lib/interface'
 
 export class DegenContract extends Contract {
-  createPost (text: string): TWriteContractResponse {
-    return this.contract.methods.createPost(text).call()
+  createPost (text: string): string {
+    return this.contract.methods.createPost(text)
   }
 
   dislikePost (postId: number): TWriteContractResponse {
-    return this.contract.methods.dislikePost(postId).call()
+    return this.contract.methods.dislikePost(postId)
   }
 
   getPost (postId: number): Promise<[string, string, number]> {
@@ -19,14 +19,14 @@ export class DegenContract extends Contract {
   }
 
   likePost (postId: number): TWriteContractResponse {
-    return this.contract.methods.likePost(postId).call()
+    return this.contract.methods.likePost(postId)
   }
 
   owner (): TReadContractResponse {
-    return this.contract.methods.owner().call()
+    return this.contract.methods.owner()
   }
 
-  postCost (): Promise<number> {
+  postCost (): TReadContractResponse {
     return this.contract.methods.postCost().call()
   }
 
@@ -35,18 +35,18 @@ export class DegenContract extends Contract {
   }
 
   setPostCost (postCost: number): TWriteContractResponse {
-    return this.contract.methods.setPostCost(postCost).call()
+    return this.contract.methods.setPostCost(postCost)
   }
 
   subscribeToAuthor (authorAddress: string): TWriteContractResponse {
-    return this.contract.methods.subscribeToAuthor(authorAddress).call()
+    return this.contract.methods.subscribeToAuthor(authorAddress)
   }
 
   unsubscribeFromAuthor (authorAddress: string): TWriteContractResponse {
-    return this.contract.methods.unsubscribeFromAuthor(authorAddress).call()
+    return this.contract.methods.unsubscribeFromAuthor(authorAddress)
   }
 
   withdrawBalance (): TWriteContractResponse {
-    return this.contract.methods.withdrawBalance().call()
+    return this.contract.methods.withdrawBalance()
   }
 }

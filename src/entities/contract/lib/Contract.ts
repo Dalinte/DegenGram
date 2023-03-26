@@ -7,8 +7,14 @@ import { Web3 } from '@/shared/lib'
 
 export class Contract implements IContract {
   contract: ContractInterface
+  public address: string
 
   constructor (address: string, abi: AbiItem) {
     this.contract = new Web3.eth.Contract(abi, address)
+    this.address = address
+  }
+
+  static encode (value: any): string {
+    return value.encodeABI()
   }
 }

@@ -15,7 +15,7 @@
 
 <script lang="ts">
 import {defineComponent} from 'vue'
-import {likePost} from '@/features/degenContract'
+import {likePost} from '@/features/degenContract/like'
 
 export default defineComponent({
   name: 'Like',
