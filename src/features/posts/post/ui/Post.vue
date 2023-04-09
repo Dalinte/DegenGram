@@ -32,7 +32,6 @@ import {Dislike} from '@/features/degenContract/dislike'
 import {Like} from '@/features/degenContract/like'
 import {AuthorPost} from '@/entities/author'
 import {IPost} from '@/features/posts/post'
-import like from '@/entities/like/ui/Like.vue'
 
 export default defineComponent({
   name: 'Post',
@@ -43,7 +42,8 @@ export default defineComponent({
   },
   props: {
     item: {
-      type: Object as PropType<IPost>
+      type: Object as PropType<IPost>,
+      required: true
     }
   },
   methods: {

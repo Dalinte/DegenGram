@@ -1,3 +1,4 @@
+import { VueClipboard } from '@soerenmartius/vue3-clipboard'
 import { createApp } from 'vue'
 
 import App from '@/app/Index.vue'
@@ -9,3 +10,4 @@ export const app = createApp(App)
   .use(router)
   .use(vuetify)
   .use(VueConnectWallet)
+  .use(VueClipboard)

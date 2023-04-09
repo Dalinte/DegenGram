@@ -7,6 +7,7 @@
       variant="solo"
       class="elevation-0 text-subtitle-1"
       rows="2"
+      bg-color="transparent"
       no-resize
     >
       <template #prepend-inner>

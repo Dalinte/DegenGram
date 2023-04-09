@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@ethersproject/contracts": "^5.7.0",
+    "@soerenmartius/vue3-clipboard": "^0.1.2",
     "core-js": "^3.8.3",
     "vue": "^3.2.13",
     "vue-connect-wallet": "^0.1.7",
