@@ -1,4 +1,2 @@
-import dislikePost from './model'
-import Dislike from './ui.vue'
-
-export { dislikePost, Dislike }
+export * as dislikeModel from './model'
+export { default as DislikeComponent } from './ui/Dislike.vue'

@@ -7,7 +7,7 @@
       <MainContainer>
         <MainContent>
           <template v-slot:aside-right>
-            <v-btn prepend-icon="mdi-link-variant" class="explorer-button mt-auto position-fixed">
+            <v-btn @click="click" prepend-icon="mdi-link-variant" class="explorer-button mt-auto position-fixed">
               Explore the contract
             </v-btn>
           </template>
@@ -65,7 +65,7 @@ export default defineComponent({
       console.log('clickLink', index)
     },
     async click() {
-      const post = contractModel.instanceDegenContract.getPost(1)
+      const post = await contractModel.instanceDegenContract.getPost(2)
       console.log(post)
     }
   },

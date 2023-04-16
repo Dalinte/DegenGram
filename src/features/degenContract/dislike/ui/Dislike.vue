@@ -15,7 +15,6 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import {dislikePost} from '@/features/degenContract/dislike'
 
 export default defineComponent({
   name: 'Dislike',
@@ -32,7 +31,6 @@ export default defineComponent({
   },
   methods: {
     click (): void {
-      dislikePost(this.postId);
       this.$emit('dislike')
     }
   },
