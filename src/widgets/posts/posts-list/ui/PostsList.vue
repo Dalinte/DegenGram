@@ -15,11 +15,8 @@
 <script lang="ts">
 import {defineComponent, PropType} from 'vue'
 import {Post, PostModel} from '@/features/posts/post'
-import { ChainConfigPolygon, polygonChainId } from '@/shared/config'
-import {authByMetamaskModel} from '@/features/authByMetamask'
 import { mapGetters } from 'vuex'
 import { walletModel } from '@/entities/wallet'
-import {dislikeModel} from '@/features/degenContract/dislike'
 
 export default defineComponent({
   name: 'PostsList',
@@ -43,10 +40,6 @@ export default defineComponent({
       this.$emit('like', index)
     },
     async dislike (postId: number) {
-      console.log(postId)
-      await authByMetamaskModel.switchOrAddChain(this.chainId, polygonChainId, ChainConfigPolygon)
-
-      await dislikeModel.dislikePost(postId).then()
       this.$emit('dislike', postId)
     },
     clickLink (index: number): void {

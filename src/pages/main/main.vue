@@ -95,7 +95,7 @@ export default defineComponent({
           isDisliked: false
         },
         {
-          id: 0,
+          id: 1,
           userName: '@User4jr5',
           address: this.$store.getters[walletModel.walletStoreNameSpace + 'address'],
           like: 20000,
@@ -107,7 +107,7 @@ export default defineComponent({
           isDisliked: false
         },
         {
-          id: 0,
+          id: 2,
           userName: '@User4jr5',
           address: this.$store.getters[walletModel.walletStoreNameSpace + 'address'],
           like: 20000,
@@ -119,7 +119,7 @@ export default defineComponent({
           isDisliked: false
         },
         {
-          id: 0,
+          id: 3,
           userName: '@User4jr5',
           address: this.$store.getters[walletModel.walletStoreNameSpace + 'address'],
           like: 20000,
@@ -131,7 +131,7 @@ export default defineComponent({
           isDisliked: false
         },
         {
-          id: 0,
+          id: 4,
           userName: '@User4jr5',
           address: this.$store.getters[walletModel.walletStoreNameSpace + 'address'],
           like: 20000,

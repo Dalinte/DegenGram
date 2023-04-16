@@ -15,7 +15,10 @@
 
 <script lang="ts">
 import {defineComponent} from 'vue'
-import {likePost} from '@/features/degenContract/like'
+import {likeModel} from '@/features/degenContract/like'
+import { ChainConfigPolygon, polygonChainId } from '@/shared/config'
+import { walletModel } from '@/entities/wallet'
+import { mapGetters } from 'vuex'
 
 export default defineComponent({
   name: 'Like',
@@ -31,12 +34,19 @@ export default defineComponent({
     }
   },
   methods: {
-    click (): void {
-      likePost(this.postId)
+    async click (): Promise<void> {
+      await walletModel.switchOrAddChain(this.chainId, polygonChainId, ChainConfigPolygon)
+
+      console.log(this.postId)
+      likeModel.likePost(this.postId)
       this.$emit('like')
     }
   },
   computed: {
+    ...mapGetters(walletModel.walletStoreName, [
+      'chainId',
+      'isAuth',
+    ]),
     getColor (): string {
       return this.isLiked ? 'red' : 'grey'
     },

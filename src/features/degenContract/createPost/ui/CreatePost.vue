@@ -35,7 +35,6 @@
 import {defineComponent} from 'vue'
 import { ChainConfigPolygon, polygonChainId } from '@/shared/config'
 import {createPostModel} from '@/features/degenContract/createPost'
-import {authByMetamaskModel} from '@/features/authByMetamask'
 import { mapGetters } from 'vuex'
 import { walletModel } from '@/entities/wallet'
 
@@ -63,7 +62,7 @@ export default defineComponent({
   },
   methods: {
     async createPost() {
-      await authByMetamaskModel.switchOrAddChain(this.chainId, polygonChainId, ChainConfigPolygon)
+      await walletModel.switchOrAddChain(this.chainId, polygonChainId, ChainConfigPolygon)
 
       await createPostModel.createPost(this.textPost).then()
     }

@@ -15,6 +15,10 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import {dislikeModel} from '@/features/degenContract/dislike'
+import { ChainConfigPolygon, polygonChainId } from '@/shared/config'
+import { walletModel } from '@/entities/wallet'
+import { mapGetters } from 'vuex'
 
 export default defineComponent({
   name: 'Dislike',
@@ -30,11 +34,18 @@ export default defineComponent({
     }
   },
   methods: {
-    click (): void {
+    async click (): Promise<void> {
+      await walletModel.switchOrAddChain(this.chainId, polygonChainId, ChainConfigPolygon)
+
+      await dislikeModel.dislikePost(this.postId)
       this.$emit('dislike')
     }
   },
   computed: {
+    ...mapGetters(walletModel.walletStoreName, [
+      'chainId',
+      'isAuth',
+    ]),
     getIcon (): string {
       return this.isDisliked ? 'mdi-thumb-down' : 'mdi-thumb-down-outline'
     },

@@ -12,8 +12,8 @@
       </v-card-title>
       <v-card-text class="text-subtitle-1 text-left text-black pa-0 mb-3">{{item.text}}</v-card-text>
       <v-card-actions class="pa-0">
-        <like :post-id="item.id" :count="item.like" :is-liked="item.isLiked" @like="like" />
-        <DislikeComponent :post-id="item.id" :count="item.dislike" :is-disliked="item.isDisliked" @dislike="dislike" />
+        <Like :post-id="item.id" :count="item.like" :is-liked="item.isLiked" @like="like" />
+        <Dislike :post-id="item.id" :count="item.dislike" :is-disliked="item.isDisliked" @dislike="dislike" />
         <v-btn
           color="grey"
           icon="mdi-link-variant"
@@ -28,7 +28,7 @@
 
 <script lang="ts">
 import {defineComponent, PropType} from 'vue'
-import {DislikeComponent} from '@/features/degenContract/dislike'
+import {Dislike} from '@/features/degenContract/dislike'
 import {Like} from '@/features/degenContract/like'
 import {AuthorPost} from '@/entities/author'
 import {IPost} from '@/features/posts/post'
@@ -36,7 +36,7 @@ import {IPost} from '@/features/posts/post'
 export default defineComponent({
   name: 'Post',
   components: {
-    DislikeComponent,
+    Dislike,
     Like,
     AuthorPost
   },

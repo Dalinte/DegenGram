@@ -1,4 +1,2 @@
-import likePost from './model'
-import Like from './ui.vue'
-
-export { likePost, Like }
+export * as likeModel from './model'
+export { default as Like } from './ui/Like.vue'
