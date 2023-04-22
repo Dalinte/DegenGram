@@ -27,7 +27,6 @@ import {Layout, MainContainer, MainContent} from '@/shared/ui'
 import {Header} from '@/widgets/header'
 import {Post} from '@/features/posts/post'
 import {PostsList} from '@/widgets/posts/posts-list'
-import {CreatePostComponent} from '@/features/degenContract/createPost'
 import {Profile} from '@/widgets/profile'
 import { walletModel } from '@/entities/wallet'
 import { mapGetters } from 'vuex'
@@ -42,7 +41,6 @@ export default defineComponent({
     Layout,
     Post,
     PostsList,
-    CreatePostComponent,
     Profile
   },
   methods: {

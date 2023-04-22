@@ -14,13 +14,7 @@
       <v-card-actions class="pa-0">
         <Like :post-id="item.id" :count="item.like" :is-liked="item.isLiked" @like="like" />
         <Dislike :post-id="item.id" :count="item.dislike" :is-disliked="item.isDisliked" @dislike="dislike" />
-        <v-btn
-          color="grey"
-          icon="mdi-link-variant"
-          size="small"
-          variant="text"
-          @click="clickLink"
-        />
+        <SubscribeToAuthorButton :authorAddress="item.authorNickname"/>
       </v-card-actions>
     </v-card>
   </article>
@@ -29,6 +23,7 @@
 <script lang="ts">
 import {defineComponent, PropType} from 'vue'
 import {Dislike} from '@/features/degenContract/dislike'
+import {SubscribeToAuthorButton} from '@/features/degenContract/subscribeToAuthor'
 import {Like} from '@/features/degenContract/like'
 import {AuthorPost} from '@/entities/author'
 import {IPost} from '@/features/posts/post'
@@ -36,8 +31,9 @@ import {IPost} from '@/features/posts/post'
 export default defineComponent({
   name: 'Post',
   components: {
-    Dislike,
+    SubscribeToAuthorButton,
     Like,
+    Dislike,
     AuthorPost
   },
   props: {

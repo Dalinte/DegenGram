@@ -9,6 +9,7 @@ export interface IPost {
   time: string
   isLiked: boolean
   isDisliked: boolean
+  authorNickname: string
 }
 
 export class PostModel {

@@ -15,7 +15,7 @@
 
 <script lang="ts">
 import {defineComponent} from 'vue'
-import {likeModel} from '@/features/degenContract/like'
+import {likePost} from '../model/likePost'
 import { ChainConfigPolygon, polygonChainId } from '@/shared/config'
 import { walletModel } from '@/entities/wallet'
 import { mapGetters } from 'vuex'
@@ -38,7 +38,7 @@ export default defineComponent({
       await walletModel.switchOrAddChain(this.chainId, polygonChainId, ChainConfigPolygon)
 
       console.log(this.postId)
-      likeModel.likePost(this.postId)
+      await likePost(this.postId)
       this.$emit('like')
     }
   },

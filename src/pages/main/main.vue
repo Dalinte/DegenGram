@@ -12,7 +12,7 @@
             </v-btn>
           </template>
           <template v-slot:content>
-            <CreatePostComponent
+            <CreatePost
               v-if="isAuth"
               :address="addressUser"
               class="mb-6"
@@ -36,7 +36,7 @@ import {Layout, MainContainer, MainContent} from '@/shared/ui'
 import {Header} from '@/widgets/header'
 import {Post} from '@/features/posts/post'
 import {PostsList} from '@/widgets/posts/posts-list'
-import {CreatePostComponent} from '@/features/degenContract/createPost'
+import {CreatePost} from '@/features/degenContract/createPost'
 import {Profile} from '@/widgets/profile'
 import { walletModel } from '@/entities/wallet'
 import { mapGetters } from 'vuex'
@@ -51,7 +51,7 @@ export default defineComponent({
     Layout,
     Post,
     PostsList,
-    CreatePostComponent,
+    CreatePost,
     Profile
   },
   methods: {
@@ -92,7 +92,8 @@ export default defineComponent({
           link: '',
           time: '23s',
           isLiked: false,
-          isDisliked: false
+          isDisliked: false,
+          authorNickname: '0x976ea74026e726554db657fa54763abd0c3a0aa9'
         },
         {
           id: 1,
@@ -104,7 +105,8 @@ export default defineComponent({
           link: '',
           time: '23s',
           isLiked: false,
-          isDisliked: false
+          isDisliked: false,
+          authorNickname: '0x976ea74026e726554db657fa54763abd0c3a0aa9'
         },
         {
           id: 2,
@@ -116,7 +118,8 @@ export default defineComponent({
           link: '',
           time: '23s',
           isLiked: false,
-          isDisliked: false
+          isDisliked: false,
+          authorNickname: '0x976ea74026e726554db657fa54763abd0c3a0aa9'
         },
         {
           id: 3,
@@ -128,7 +131,8 @@ export default defineComponent({
           link: '',
           time: '23s',
           isLiked: false,
-          isDisliked: false
+          isDisliked: false,
+          authorNickname: '0x976ea74026e726554db657fa54763abd0c3a0aa9'
         },
         {
           id: 4,
@@ -140,7 +144,8 @@ export default defineComponent({
           link: '',
           time: '23s',
           isLiked: false,
-          isDisliked: false
+          isDisliked: false,
+          authorNickname: '0x976ea74026e726554db657fa54763abd0c3a0aa9'
         }
       ]
     }
