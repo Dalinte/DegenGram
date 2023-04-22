@@ -8,7 +8,7 @@
       @click="click"
     />
     <slot>
-      <p v-if="count" :class="`text-${getColor}`" >{{getCount}}</p>
+      <p :class="`text-${getColor}`" >{{getCount}}</p>
     </slot>
   </div>
 </template>

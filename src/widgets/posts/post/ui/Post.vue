@@ -3,18 +3,18 @@
     <v-card elevation="0" class="pa-4">
       <v-card-title class="d-flex align-content-lg-start pa-0 mb-3">
         <author-post
-          :user-name="item.userName"
-          :address="item.address"
+          :user-name="post.userName"
+          :address="post.address"
           class="mr-2"
         />
         <v-icon icon="mdi-circle-small" color="light-green-darken-4" size="x-small" class="mt-2" />
-        <p class="text-light-green-darken-4">{{item.time}}</p>
+        <p class="text-light-green-darken-4">{{post.timePassed}}</p>
       </v-card-title>
-      <v-card-text class="text-subtitle-1 text-left text-black pa-0 mb-3">{{item.text}}</v-card-text>
+      <v-card-text class="text-subtitle-1 text-left text-black pa-0 mb-3">{{post.content}}</v-card-text>
       <v-card-actions class="pa-0">
-        <Like :post-id="item.id" :count="item.like" :is-liked="item.isLiked" @like="like" />
-        <Dislike :post-id="item.id" :count="item.dislike" :is-disliked="item.isDisliked" @dislike="dislike" />
-        <SubscribeToAuthorButton :authorAddress="item.authorNickname"/>
+        <Like :post-id="post.id" :count="post.likeCount" :is-liked="post.isLiked" @like="like" />
+        <Dislike :post-id="post.id" :count="post.dislikeCount" :is-disliked="post.isDisliked" @dislike="dislike" />
+        <SubscribeToAuthorButton :authorAddress="post.address"/>
       </v-card-actions>
     </v-card>
   </article>
@@ -26,7 +26,7 @@ import {Dislike} from '@/features/degenContract/dislike'
 import {SubscribeToAuthorButton} from '@/features/degenContract/subscribeToAuthor'
 import {Like} from '@/features/degenContract/like'
 import {AuthorPost} from '@/entities/author'
-import {IPost} from '@/features/posts/post'
+import {postModel} from '@/widgets/posts/post'
 
 export default defineComponent({
   name: 'Post',
@@ -37,8 +37,8 @@ export default defineComponent({
     AuthorPost
   },
   props: {
-    item: {
-      type: Object as PropType<IPost>,
+    post: {
+      type: Object as PropType<postModel.Post>,
       required: true
     }
   },

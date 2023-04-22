@@ -38,9 +38,12 @@ const ChainConfigPolygonProd: IChainConfig = {
 
 const ChainConfigPolygon = isDev ? ChainConfigPolygonDev : ChainConfigPolygonProd
 
+const domainApiUrl = process.env.DOMAIN_API_URL as unknown as string
+
 export {
   degenAddressPolygon,
   polygonChainId,
   ChainConfigPolygon,
   IChainConfig,
+  domainApiUrl,
 }

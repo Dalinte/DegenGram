@@ -34,8 +34,8 @@
 import {defineComponent} from 'vue'
 import {Layout, MainContainer, MainContent} from '@/shared/ui'
 import {Header} from '@/widgets/header'
-import {Post} from '@/features/posts/post'
-import {PostsList} from '@/widgets/posts/posts-list'
+import {Post} from '@/widgets/posts/post'
+import {PostsList} from '@/widgets/posts'
 import {CreatePost} from '@/features/degenContract/createPost'
 import {Profile} from '@/widgets/profile'
 import { walletModel } from '@/entities/wallet'
@@ -148,8 +148,9 @@ export default defineComponent({
           authorNickname: '0x976ea74026e726554db657fa54763abd0c3a0aa9'
         }
       ]
-    }
+    },
   },
+
 })
 </script>
 

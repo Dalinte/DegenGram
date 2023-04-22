@@ -4,6 +4,7 @@ import { createApp } from 'vue'
 import App from '@/app/Index.vue'
 
 import { router, store, vuetify, VueConnectWallet } from '@/app/providers'
+require('dotenv').config()
 
 export const app = createApp(App)
   .use(store)
