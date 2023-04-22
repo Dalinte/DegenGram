@@ -3,6 +3,7 @@ import { HTTPDeden } from '@/shared/lib'
 export interface IGetPostListParams {
   limit: number
   offset: number
+  address?: string
 }
 
 export interface IPost {
