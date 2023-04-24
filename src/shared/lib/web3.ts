@@ -5,4 +5,4 @@ const Web3 = new web3()
 
 Web3.setProvider(window.ethereum)
 
-export default Web3
+export { Web3 }

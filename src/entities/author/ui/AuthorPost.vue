@@ -6,7 +6,7 @@
     </div>
     <div class="info text-left">
       <div class="nickname cursor-pointer" @click="goToProfile">
-        <p class="text-body-1 font-weight-bold" >{{userName}}</p>
+        <SplitText class="text-body-1 font-weight-bold" :text="userName"/>
       </div>
       <div
         v-clipboard:copy="address"

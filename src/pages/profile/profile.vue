@@ -13,7 +13,7 @@
           </template>
           <template v-slot:content>
             <profile user-name="@User4jr5" :address="addressUser" />
-            <posts-list :posts="posts" @like="like" @dislike="dislike" @click-link="clickLink" />
+            <PostsList :posts="posts" @click-link="clickLink" />
           </template>
         </MainContent>
       </MainContainer>
@@ -25,9 +25,7 @@
 import {defineComponent} from 'vue'
 import {Layout, MainContainer, MainContent} from '@/shared/ui'
 import {Header} from '@/widgets/header'
-import {Post} from '@/features/posts/post'
-import {PostsList} from '@/widgets/posts/posts-list'
-import {CreatePostComponent} from '@/features/degenContract/createPost'
+import {PostsList} from '@/widgets/posts'
 import {Profile} from '@/widgets/profile'
 import { walletModel } from '@/entities/wallet'
 import { mapGetters } from 'vuex'
@@ -40,18 +38,10 @@ export default defineComponent({
     MainContainer,
     Header,
     Layout,
-    Post,
     PostsList,
-    CreatePostComponent,
     Profile
   },
   methods: {
-    like (index: number): void {
-      this.posts[index].isLiked = !this.posts[index].isLiked
-    },
-    dislike (index: number): void {
-      this.posts[index].isDisliked = !this.posts[index].isDisliked
-    },
     clickLink (index: number): void {
       console.log('clickLink', index)
     },

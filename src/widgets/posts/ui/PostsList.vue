@@ -1,9 +1,9 @@
 <template>
-  <div class="posts-list">
+  <div class="posts-list" v-if="posts.length">
     <post
-      v-for="(item, index) in posts"
-      :key="item.id"
-      :item="item"
+      v-for="(post, index) in posts"
+      :key="post.id"
+      :post="post"
       class="mb-1"
       @like="like(index)"
       @dislike="dislike(index)"
@@ -14,9 +14,10 @@
 
 <script lang="ts">
 import {defineComponent, PropType} from 'vue'
-import {Post, PostModel} from '@/features/posts/post'
 import { mapGetters } from 'vuex'
 import { walletModel } from '@/entities/wallet'
+import {postListModel} from '@/widgets/posts'
+import {postModel, Post} from '@/widgets/posts/post'
 
 export default defineComponent({
   name: 'PostsList',
@@ -25,7 +26,7 @@ export default defineComponent({
   },
   props: {
     posts: {
-      type: Array as PropType<Array<PostModel>>,
+      type: Array as PropType<postModel.Post[]>,
       required: true
     }
   },
@@ -34,6 +35,26 @@ export default defineComponent({
       'chainId',
       'isAuth',
     ]),
+  },
+  data() {
+    return {
+      isPostsLoading: false,
+      posts: [] as PropType<postModel.Post[]>,
+    }
+  },
+  async created () {
+    this.isPostsLoading = true
+
+    postListModel.fetchAndParsePostList({limit: 30, offset: 0})
+      .then((posts) => {
+        //@ts-ignore
+        // Проблема с интерфейсом
+        this.posts = posts
+        console.log(posts)
+    })
+      .finally(() => {
+      this.isPostsLoading = false
+    })
   },
   methods: {
     like (index: number): void {
