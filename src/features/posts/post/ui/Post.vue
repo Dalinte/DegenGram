@@ -1,19 +1,19 @@
 <template>
   <article class="post border-sm">
     <v-card elevation="0" class="pa-4">
-      <v-card-title class="d-flex align-content-lg-start pa-0 mb-3">
+      <v-card-title class="d-flex align-content-lg-start pa-0 mb-4">
         <author-post
           :user-name="item.userName"
           :address="item.address"
           class="mr-2"
         />
-        <v-icon icon="mdi-circle-small" color="light-green-darken-4" size="x-small" class="mt-2" />
-        <p class="text-light-green-darken-4">{{item.time}}</p>
+        <v-icon icon="mdi-circle-small" color="light-green-darken-4" size="x-small" class="mt-1" />
+        <p class="text-light-green-darken-4 text-body-1">{{item.time}}</p>
       </v-card-title>
       <v-card-text class="text-subtitle-1 text-left text-black pa-0 mb-3">{{item.text}}</v-card-text>
       <v-card-actions class="pa-0">
-        <Like :post-id="item.id" :count="item.like" :is-liked="item.isLiked" @like="like" />
-        <Dislike :post-id="item.id" :count="item.dislike" :is-disliked="item.isDisliked" @dislike="dislike" />
+        <Like :post-id="item.id" :count="item.like" :is-liked="item.isLiked" class="mr-2"  @like="like" />
+        <Dislike :post-id="item.id" :count="item.dislike" :is-disliked="item.isDisliked" class="mr-2" @dislike="dislike" />
         <v-btn
           color="grey"
           icon="mdi-link-variant"

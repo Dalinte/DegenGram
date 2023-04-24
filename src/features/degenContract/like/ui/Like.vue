@@ -4,7 +4,6 @@
       :color="getColor"
       :icon="getIcon"
       size="small"
-      variant="text"
       @click="click"
     />
     <slot>
@@ -23,7 +22,7 @@ import { mapGetters } from 'vuex'
 export default defineComponent({
   name: 'Like',
   props: {
-    count: Number,
+    count: String,
     postId: {
       type: Number,
       required: true

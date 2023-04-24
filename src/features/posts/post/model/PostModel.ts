@@ -3,8 +3,8 @@ export interface IPost {
   userName: string
   address: string
   text: string
-  like: number
-  dislike: number
+  like: string
+  dislike: string
   link: string
   time: string
   isLiked: boolean

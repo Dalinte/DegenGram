@@ -1,5 +1,5 @@
 <template>
-  <div class="send-post border-sm pa-4 d-flex flex-column">
+  <div class="send-post border-sm pa-4 d-flex flex-column bg-white">
     <v-textarea
       v-model="textPost"
       label=""
@@ -11,16 +11,16 @@
       no-resize
     >
       <template #prepend-inner>
-        <div class="avatar cursor-pointer">
+        <div class="avatar cursor-pointer mr-2">
           <v-avatar>
-            <Jazzicon :address="address" :diameter="60" />
+            <Jazzicon :address="address" :diameter="55" />
           </v-avatar>
         </div>
       </template>
     </v-textarea>
     <v-btn
       color="green-1"
-      size="large"
+      size="default"
       rounded="lg"
       class="align-self-end"
       :disabled="isDisabled"

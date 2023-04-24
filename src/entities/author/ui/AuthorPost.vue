@@ -1,18 +1,12 @@
 <template>
   <div class="author-post d-flex align-center">
-    <div
-      v-if="address"
-      class="account-logo mr-4 cursor-pointer"
-      @click="goToProfile"
-    >
-      <Jazzicon :address="address" :diameter="36" />
-    </div>
+    <Jazzicon v-if="address" :address="address" :diameter="50" class="d-flex account-logo mr-5 cursor-pointer align-center" @click="goToProfile" />
     <div v-else class="empty-logo mr-4 pa-2 rounded-circle bg-grey">
       <v-icon icon="mdi-account" size="large" />
     </div>
     <div class="info text-left">
-      <div class="nickname font-weight-bold cursor-pointer" @click="goToProfile">
-        <p>{{userName}}</p>
+      <div class="nickname cursor-pointer" @click="goToProfile">
+        <p class="text-body-1 font-weight-bold" >{{userName}}</p>
       </div>
       <div
         v-clipboard:copy="address"
@@ -20,7 +14,7 @@
         class="address text-light-green-darken-4 cursor-pointer"
         @mouseleave="hoverOut"
       >
-        <split-text :text="address" />
+        <split-text :text="address" class="text-body-1" />
         <v-tooltip
           activator="parent"
           location="top"
