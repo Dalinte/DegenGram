@@ -1,19 +1,19 @@
 <template>
   <article class="post border-sm">
     <v-card elevation="0" class="pa-4">
-      <v-card-title class="d-flex align-content-lg-start pa-0 mb-3">
+      <v-card-title class="d-flex align-content-lg-start pa-0 mb-4">
         <author-post
           :user-name="post.userName"
           :address="post.address"
           class="mr-2"
         />
-        <v-icon icon="mdi-circle-small" color="light-green-darken-4" size="x-small" class="mt-2" />
-        <p class="text-light-green-darken-4">{{post.timePassed}}</p>
+        <v-icon icon="mdi-circle-small" color="light-green-darken-4" size="x-small" class="mt-1" />
+        <p class="text-light-green-darken-4 text-body-1">{{post.timePassed}}</p>
       </v-card-title>
       <v-card-text class="text-subtitle-1 text-left text-black pa-0 mb-3">{{post.content}}</v-card-text>
       <v-card-actions class="pa-0">
-        <Like :post-id="post.id" :count="post.likeCount" :is-liked="post.isLiked" @like="like" />
-        <Dislike :post-id="post.id" :count="post.dislikeCount" :is-disliked="post.isDisliked" @dislike="dislike" />
+        <Like :post-id="post.id" :count="post.likeCount" :is-liked="post.isLiked" class="mr-2"  @like="like" />
+        <Dislike :post-id="post.id" :count="post.dislikeCount" :is-disliked="post.isDisliked" class="mr-2" @dislike="dislike" />
         <SubscribeToAuthorButton :authorAddress="post.address"/>
       </v-card-actions>
     </v-card>

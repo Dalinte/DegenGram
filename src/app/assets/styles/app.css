@@ -1,16 +1,17 @@
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-}
+/* Error: Can't find stylesheet to import.
+ *   ,
+ * 4 | @import 'vuetify/styles';
+ *   |         ^^^^^^^^^^^^^^^^
+ *   '
+ *   app.scss 4:9  root stylesheet */
 
-.v-field--variant-solo {
-  box-shadow: unset !important;
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Can't find stylesheet to import.\a   \2577 \a 4 \2502  @import 'vuetify/styles';\a   \2502          ^^^^^^^^^^^^^^^^\a   \2575 \a   app.scss 4:9  root stylesheet";
 }
-
-.cursor-pointer {
-  cursor: pointer;
-}
-
-/*# sourceMappingURL=app.css.map */

@@ -1,7 +1,7 @@
 <template>
   <div class="profile d-flex align-center pa-8 bg-white">
     <div class="account-logo mr-4 cursor-pointer" @click="goToProfile">
-      <Jazzicon :address="address" :diameter="90" />
+      <Jazzicon :address="address" :diameter="100" />
     </div>
     <div class="right-block d-flex flex-column w-100">
       <div class="user d-flex justify-space-between align-center">
