@@ -12,8 +12,6 @@ export class HTTP {
   }
 
   get<IParams, IResponse> (url: string, params: IParams): Promise<AxiosResponse<IResponse, any>> {
-    console.log(this._domainApiUrl + url)
-
     return axios({
       method: 'get',
       url: this._domainApiUrl + url,

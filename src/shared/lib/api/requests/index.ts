@@ -1,1 +1,1 @@
-export * as fetchPostListLib from './fetchPostList'
+export * from './fetchPostList'

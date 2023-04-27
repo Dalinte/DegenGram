@@ -54,21 +54,6 @@ export default defineComponent({
     CreatePost,
     Profile
   },
-  methods: {
-    like (index: number): void {
-      this.posts[index].isLiked = !this.posts[index].isLiked
-    },
-    dislike (index: number): void {
-      this.posts[index].isDisliked = !this.posts[index].isDisliked
-    },
-    clickLink (index: number): void {
-      console.log('clickLink', index)
-    },
-    async click() {
-      const post = await contractModel.instanceDegenContract.getPost(2)
-      console.log(post)
-    }
-  },
   computed: {
     ...mapGetters(walletModel.walletStoreName, [
       'isAuth',
@@ -79,75 +64,6 @@ export default defineComponent({
     },
     addressUser (): string {
       return this.$store.getters[walletModel.walletStoreNameSpace + 'address']
-    },
-    posts () {
-      return [
-        {
-          id: 0,
-          userName: '@User4jr5',
-          address: this.$store.getters[walletModel.walletStoreNameSpace + 'address'],
-          like: 20000,
-          dislike: 30000,
-          text: 'This is the best known and second most common type of lightning. Of all the different types of lightning, it poses the greatest threat to life and property since it strikes the ground. Cloud-to-ground lightning is a lightning discharge between a cumulonimbus cloud and the ground.',
-          link: '',
-          time: '23s',
-          isLiked: false,
-          isDisliked: false,
-          authorNickname: '0x976ea74026e726554db657fa54763abd0c3a0aa9'
-        },
-        {
-          id: 1,
-          userName: '@User4jr5',
-          address: this.$store.getters[walletModel.walletStoreNameSpace + 'address'],
-          like: 20000,
-          dislike: 30000,
-          text: 'This is the best known and second most common type of lightning. Of all the different types of lightning, it poses the greatest threat to life and property since it strikes the ground. Cloud-to-ground lightning is a lightning discharge between a cumulonimbus cloud and the ground.',
-          link: '',
-          time: '23s',
-          isLiked: false,
-          isDisliked: false,
-          authorNickname: '0x976ea74026e726554db657fa54763abd0c3a0aa9'
-        },
-        {
-          id: 2,
-          userName: '@User4jr5',
-          address: this.$store.getters[walletModel.walletStoreNameSpace + 'address'],
-          like: 20000,
-          dislike: 30000,
-          text: 'This is the best known and second most common type of lightning. Of all the different types of lightning, it poses the greatest threat to life and property since it strikes the ground. Cloud-to-ground lightning is a lightning discharge between a cumulonimbus cloud and the ground.',
-          link: '',
-          time: '23s',
-          isLiked: false,
-          isDisliked: false,
-          authorNickname: '0x976ea74026e726554db657fa54763abd0c3a0aa9'
-        },
-        {
-          id: 3,
-          userName: '@User4jr5',
-          address: this.$store.getters[walletModel.walletStoreNameSpace + 'address'],
-          like: 20000,
-          dislike: 30000,
-          text: 'This is the best known and second most common type of lightning. Of all the different types of lightning, it poses the greatest threat to life and property since it strikes the ground. Cloud-to-ground lightning is a lightning discharge between a cumulonimbus cloud and the ground.',
-          link: '',
-          time: '23s',
-          isLiked: false,
-          isDisliked: false,
-          authorNickname: '0x976ea74026e726554db657fa54763abd0c3a0aa9'
-        },
-        {
-          id: 4,
-          userName: '@User4jr5',
-          address: this.$store.getters[walletModel.walletStoreNameSpace + 'address'],
-          like: 20000,
-          dislike: 30000,
-          text: 'This is the best known and second most common type of lightning. Of all the different types of lightning, it poses the greatest threat to life and property since it strikes the ground. Cloud-to-ground lightning is a lightning discharge between a cumulonimbus cloud and the ground.',
-          link: '',
-          time: '23s',
-          isLiked: false,
-          isDisliked: false,
-          authorNickname: '0x976ea74026e726554db657fa54763abd0c3a0aa9'
-        }
-      ]
     },
   },
 

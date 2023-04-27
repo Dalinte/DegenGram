@@ -1,4 +1,4 @@
-import { fetchPostListLib } from '@/shared/lib/api/requests'
+import { interfaces } from '@/shared/lib/api'
 
 export interface IPost {
   id: string
@@ -26,7 +26,7 @@ export class Post {
   public isLiked = false
   public isDisliked = false
 
-  constructor (rawPosts: fetchPostListLib.IPost) {
+  constructor (rawPosts: interfaces.IPost) {
     this.id = rawPosts.id
     this.userName = rawPosts.authorNickname
     this.address = rawPosts.authorNickname //  Сделать в апи другое поле

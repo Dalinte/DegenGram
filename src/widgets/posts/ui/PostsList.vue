@@ -45,7 +45,7 @@ export default defineComponent({
   async created () {
     this.isPostsLoading = true
 
-    postListModel.fetchAndParsePostList({limit: 30, offset: 0})
+    postListModel.fetchAndParsePostList({limit: 30, offset: 0}, true)
       .then((posts) => {
         //@ts-ignore
         // Проблема с интерфейсом
@@ -53,7 +53,7 @@ export default defineComponent({
         console.log(posts)
     })
       .finally(() => {
-      this.isPostsLoading = false
+        this.isPostsLoading = false
     })
   },
   methods: {
