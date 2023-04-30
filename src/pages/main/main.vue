@@ -15,14 +15,37 @@
             <CreatePost
               v-if="isAuth"
               :address="addressUser"
-              class="mb-6"
             />
-            <posts-list
-              :posts="posts"
-              @like="like"
-              @dislike="dislike"
-              @click-link="clickLink"
-            />
+            <v-card>
+              <v-tabs
+                v-model="tab"
+                bg-color="transparent"
+              >
+                <v-tab :value="1">Global feed</v-tab>
+                <v-tab :value="2">My feed</v-tab>
+              </v-tabs>
+
+              <v-card-text>
+                <v-window v-model="tab">
+                  <v-window-item :value="1">
+                    <posts-list
+                      :posts="posts"
+                      @like="like"
+                      @dislike="dislike"
+                      @click-link="clickLink"
+                    />
+                  </v-window-item>
+                  <v-window-item :value="2">
+                    <posts-list
+                      :posts="posts"
+                      @like="like"
+                      @dislike="dislike"
+                      @click-link="clickLink"
+                    />
+                  </v-window-item>
+                </v-window>
+              </v-card-text>
+            </v-card>
           </template>
         </MainContent>
       </MainContainer>
@@ -54,11 +77,15 @@ export default defineComponent({
     CreatePost,
     Profile
   },
+  data () {
+    return {
+      tab: 1
+    }
+  },
   computed: {
     ...mapGetters(walletModel.walletStoreName, [
       'isAuth',
     ]),
-
     isAuth (): boolean {
       return true
     },
@@ -66,7 +93,6 @@ export default defineComponent({
       return this.$store.getters[walletModel.walletStoreNameSpace + 'address']
     },
   },
-
 })
 </script>
 

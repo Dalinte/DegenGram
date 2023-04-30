@@ -7,6 +7,7 @@
       <div class="user d-flex justify-space-between align-center">
         <div class="user__info text-left">
           <p
+            v-if="!isShowTextField"
             class="nickname font-weight-bold cursor-pointer"
             @click="goToProfile"
           >
@@ -29,13 +30,25 @@
         </div>
         <div class="user__action">
           <v-btn
+            v-if="isMyAccount"
+            color="green"
+            size="large"
+            rounded="lg"
+            variant="outlined"
+            class="align-self-end"
+            @click="edit"
+          >
+            Edit
+          </v-btn>
+          <v-btn
+            v-if="!isMyAccount"
             color="green"
             size="large"
             rounded="lg"
             variant="outlined"
             class="align-self-end"
           >
-            {{textBtn}}
+            Subscribe
           </v-btn>
         </div>
       </div>
@@ -66,15 +79,13 @@ export default defineComponent({
   },
   data () {
     return {
-      isCopied: false
+      isCopied: false,
+      isShowTextField: false
     }
   },
   computed: {
     isMyAccount (): boolean {
       return this.$route.params.id === this.$store.getters[walletModel.walletStoreNameSpace + 'address']
-    },
-    textBtn (): string {
-      return this.isMyAccount ? 'Edit' : 'Subscribe'
     },
     indicators () {
       return [
@@ -111,6 +122,9 @@ export default defineComponent({
     },
     hoverOut (): void {
       this.isCopied = false
+    },
+    edit (): void {
+      this.isShowTextField = true
     }
   }
 })

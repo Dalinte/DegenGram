@@ -12,8 +12,29 @@
             </v-btn>
           </template>
           <template v-slot:content>
+            <v-sheet class="pa-3">
+              <v-btn variant="text" @click="goToMain">
+                <v-icon icon="mdi-arrow-left" size="large" class="mr-2 text-light-green-darken-4" />
+                News
+              </v-btn>
+            </v-sheet>
+            <v-divider />
             <profile user-name="@User4jr5" :address="addressUser" />
-            <PostsList :posts="posts" @click-link="clickLink" />
+            <v-card>
+              <v-tabs
+                v-model="tab"
+                bg-color="transparent"
+              >
+                <v-tab :value="1">News</v-tab>
+              </v-tabs>
+              <v-card-text>
+                <v-window v-model="tab">
+                  <v-window-item :value="1">
+                    <PostsList :posts="posts" @click-link="clickLink" />
+                  </v-window-item>
+                </v-window>
+              </v-card-text>
+            </v-card>
           </template>
         </MainContent>
       </MainContainer>
@@ -41,7 +62,15 @@ export default defineComponent({
     PostsList,
     Profile
   },
+  data () {
+    return {
+      tab: 0
+    }
+  },
   methods: {
+    goToMain (): void {
+      this.$router.push('/')
+    },
     clickLink (index: number): void {
       console.log('clickLink', index)
     },
