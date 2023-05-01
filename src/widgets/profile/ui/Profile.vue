@@ -7,7 +7,6 @@
       <div class="user d-flex justify-space-between align-center">
         <div class="user__info text-left">
           <p
-            v-if="!isShowTextField"
             class="nickname font-weight-bold cursor-pointer"
             @click="goToProfile"
           >
@@ -60,6 +59,32 @@
       </div>
     </div>
   </div>
+  <v-dialog
+    v-model="isShowModal"
+    width="500"
+  >
+    <v-card class="pa-4 elevation-1">
+      <v-text-field
+        v-model="newUsername"
+        label="Nickname"
+        variant="outlined"
+      />
+      <v-card-actions class="d-flex justify-lg-space-between">
+        <v-btn
+          color="red-darken-1"
+          @click="isShowModal = false"
+        >
+          Cancel
+        </v-btn>
+        <v-btn
+          color="green"
+          @click="isShowModal = false"
+        >
+          Save
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
 </template>
 
 <script lang="ts">
@@ -80,7 +105,8 @@ export default defineComponent({
   data () {
     return {
       isCopied: false,
-      isShowTextField: false
+      isShowModal: false,
+      newUsername: ''
     }
   },
   computed: {
@@ -124,7 +150,7 @@ export default defineComponent({
       this.isCopied = false
     },
     edit (): void {
-      this.isShowTextField = true
+      this.isShowModal = true
     }
   }
 })

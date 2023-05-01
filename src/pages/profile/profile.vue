@@ -20,14 +20,15 @@
             </v-sheet>
             <v-divider />
             <profile user-name="@User4jr5" :address="addressUser" />
-            <v-card>
+            <v-card class="bg-transparent elevation-0">
               <v-tabs
                 v-model="tab"
                 bg-color="transparent"
+                color="green-6"
               >
                 <v-tab :value="1">News</v-tab>
               </v-tabs>
-              <v-card-text>
+              <v-card-text class="pa-0 bg-transparent">
                 <v-window v-model="tab">
                   <v-window-item :value="1">
                     <PostsList :posts="posts" @click-link="clickLink" />

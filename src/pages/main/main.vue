@@ -16,16 +16,16 @@
               v-if="isAuth"
               :address="addressUser"
             />
-            <v-card>
+            <v-card class="bg-transparent elevation-0">
               <v-tabs
                 v-model="tab"
                 bg-color="transparent"
+                color="green-6"
               >
-                <v-tab :value="1">Global feed</v-tab>
-                <v-tab :value="2">My feed</v-tab>
+                <v-tab :value="1" class="font-weight-bold text-capitalize">Global feed</v-tab>
+                <v-tab :value="2" class="font-weight-bold text-capitalize">My feed</v-tab>
               </v-tabs>
-
-              <v-card-text>
+              <v-card-text class="pa-0 bg-transparent">
                 <v-window v-model="tab">
                   <v-window-item :value="1">
                     <posts-list

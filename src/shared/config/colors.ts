@@ -6,6 +6,7 @@ const green: TColor = {
   3: '#EDF0EB',
   4: '#EDF0EB',
   5: '#F8FAF7',
+  6: '#33691e',
 }
 
 const pink: TColor = {
