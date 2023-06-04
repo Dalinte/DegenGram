@@ -63,7 +63,6 @@ import {CreatePost} from '@/features/degenContract/createPost'
 import {Profile} from '@/widgets/profile'
 import { walletModel } from '@/entities/wallet'
 import { mapGetters } from 'vuex'
-import { contractModel } from '@/entities/contract'
 
 export default defineComponent({
   name: 'MainPage',

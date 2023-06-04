@@ -25,6 +25,7 @@ const degenTheme: ThemeDefinition = {
     'gray-1': colors.gray[1],
     'dark-1': colors.dark[1],
     'text-light-green-darken-4': colors.green[2],
+    'toxic-green': colors.green[7],
     white: colors.neutral.white,
     black: colors.neutral.black,
   },

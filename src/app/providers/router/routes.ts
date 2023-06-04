@@ -1,12 +1,13 @@
 import { RouteRecordRaw } from 'vue-router'
 
+import Landing from '@/pages/landing/landing.vue'
 import MainPage from '@/pages/main/main.vue'
 import ProfilePage from '@/pages/profile/profile.vue'
 
 const routeNames = {
-  homePage: 'homePage',
-  mainPage: 'mainPage',
   profilePage: 'profilePage',
+  mainPage: 'mainPage',
+  landing: 'landing',
 }
 
 const routes: Array<RouteRecordRaw> = [
@@ -26,6 +27,11 @@ const routes: Array<RouteRecordRaw> = [
         component: ProfilePage,
       },
     ],
+  },
+  {
+    path: '/landing',
+    name: routeNames.landing,
+    component: Landing,
   },
 ]
 

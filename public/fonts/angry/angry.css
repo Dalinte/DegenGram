@@ -1,0 +1,7 @@
+@font-face {
+    font-family: 'Angry';
+    src: local('Angry Medium'), local('Angry-Medium'), url('Angry.woff2') format('woff2'), url('Angry.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
